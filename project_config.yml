@@ -1,93 +1,68 @@
 project:
-  title: "Project Title"
-  slug: "project-slug"
-  subtitle: "Short project subtitle"
-  description: "One-paragraph project description."
-  status: "draft"
+  title: 'ESPN Analytics WCBB Player Fingerprints and Team Net Points'
+  slug: 'wcbb-espn-analytics-pipeline'
+  subtitle: '45-team NCAA D1 WBB live data ingestion and DuckDB QA'
+  description: 'Twice-weekly source-preserving ESPN Analytics WCBB ingestion for 25 AP-ranked teams and 20 watchlist teams.'
+  status: 'data-pipeline'
   sport: "Women's Basketball"
-  league: "WNBA"
-  season: "2026"
-  author: "Krystal Beasley"
-  created_date: "YYYY-MM-DD"
-  last_updated: "YYYY-MM-DD"
-
+  league: 'NCAA Division I WCBB'
+  season: '2026-27'
+  author: 'kbsmd-sportsmusicdata'
+  created_date: '2026-11-23'
+  last_updated: '2026-11-23'
 links:
-  github_repo: ""
-  github_pages: ""
-  portfolio_page: ""
-  tableau_public: ""
-  notion_page: ""
-
+  github_repo: 'https://github.com/kbsmd-sportsmusicdata/wcbb-espn-analytics-pipeline'
+  github_pages: ''
+  portfolio_page: ''
+  tableau_public: ''
+  notion_page: ''
 outputs:
-  primary_deliverable: "HTML notebook"
-  notebook_path: "notebooks/index.html"
-  dashboard_path: ""
-  report_path: "docs/executive_summary.md"
-
+  primary_deliverable: 'Versioned Parquet and DuckDB data families'
+  notebook_path: 'notebooks/index.html'
+  dashboard_path: ''
+  report_path: 'docs/QA_GATES.md'
 project_context:
-  problem_statement: "Add project problem statement."
-  audience:
-    - "sports analytics portfolio reviewers"
-    - "front office decision-makers"
-    - "coaching staff"
-  use_cases:
-    - "player evaluation"
-    - "roster analysis"
-    - "data storytelling"
-  key_questions:
-    - "What question does this project answer?"
-    - "What decision does this analysis support?"
-
+  problem_statement: 'Deliver reproducible, provenance-rich current-season team and player impact metrics with safe joins.'
+  audience: ['coaching analysts', 'front-office analysts', 'research and editorial']
+  use_cases: ['newcomer impact', 'transfer translation', 'role evaluation', 'draft and breakout scouting']
+  key_questions: ['Which functions are being fulfilled by newcomers?', 'How does team execution contextualize player performance?']
 methodology:
   data_sources:
-    - name: "Source Name"
-      url: ""
-      notes: ""
-  cleaning_steps:
-    - "Describe cleaning step."
-  feature_engineering:
-    - "Describe derived metric or feature."
-  modeling_approach: "Describe model or write 'Not applicable'."
-  validation_checks:
-    - "Row count check"
-    - "Missing value check"
-    - "Duplicate check"
-    - "Schema check"
-
+    - name: 'ESPN Analytics WCBB Team Data'
+      url: 'https://espnanalytics.com/api/team-data?league=wcbb&season=2026'
+      notes: 'Source parameter is first year of academic season.'
+    - name: 'ESPN Analytics WCBB Fingerprints'
+      url: 'https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2026'
+      notes: 'Raw source skill impacts, empirical percentiles computed separately.'
+  cleaning_steps: ['Preserve both source team IDs and player names', 'Reject duplicate player-season IDs', 'Quarantine missing source team IDs']
+  feature_engineering: ['Full-source-season, within-skill descriptive percentiles; not official ESPN percentiles']
+  modeling_approach: 'Not applicable; source metrics retained without inventing impact estimates.'
+  validation_checks: ['Unique ESPN team and player IDs', '45 cohort teams present', 'All 3 four-factor sides', 'BPI coverage', 'Fingerprint ID coverage']
 metrics:
   primary_metrics:
-    - name: "Metric Name"
-      definition: "Metric definition."
-      interpretation: "How to interpret this metric."
+    - name: 'ESPN Total Net Points'
+      definition: 'Original ESPN Analytics team or player total Net Points'
+      interpretation: 'Not interchangeable with BPI or other impact models'
   derived_metrics:
-    - name: "Derived Metric Name"
-      formula: "Formula or calculation logic."
-      interpretation: "How to interpret this metric."
-
+    - name: 'Computed league skill percentile'
+      formula: 'pandas rank(pct=True) within source season and skill over the full player feed'
+      interpretation: 'Descriptive rank, not ESPN website published percentile'
 data:
-  raw_data_dir: "data/raw"
-  processed_data_dir: "data/processed"
-  expected_files:
-    - path: "data/processed/example.csv"
-      required: false
-      description: "Example processed dataset."
+  raw_data_dir: 'data/raw'
+  processed_data_dir: 'data/latest'
+  expected_files: []
   required_columns: []
-
 validation:
-  fail_on_missing_required_files: false
-  fail_on_duplicate_rows: false
+  fail_on_missing_required_files: true
+  fail_on_duplicate_rows: true
   fail_on_missing_values: false
   max_missing_pct_warning: 20
-
 publishing:
-  deploy_github_pages: true
-  pages_source: "notebooks/index.html"
+  deploy_github_pages: false
+  pages_source: 'notebooks/index.html'
   include_validation_badge: true
   include_methodology_link: true
   include_data_dictionary_link: true
-
 notes:
-  limitations:
-    - "List known limitation."
-  next_steps:
-    - "List next step."
+  limitations: ['ESPN public data terms have not been verified for republishing; keep repo private initially.', 'Current season is partial and source can change retrospectively.']
+  next_steps: ['Manually run the GitHub Actions refresh after repo creation', 'Inspect run manifest and exact row counts']

@@ -1,0 +1,46 @@
+team_requested,cohort,ap_rank,ap_poll_date,espn_alias_queried,espn_team_id,espn_team_name,resolution,cohort_source,cohort_version,cohort_extracted_utc,supplemental_to_original_watchlist
+South Carolina,AP_TOP25,1,2026-11-16,South Carolina,2579,South Carolina,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Michigan,AP_TOP25,2,2026-11-16,Michigan,130,Michigan,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Louisville,AP_TOP25,3,2026-11-16,Louisville,97,Louisville,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+USC,AP_TOP25,4,2026-11-16,Southern California,30,Southern California,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Duke,AP_TOP25,5,2026-11-16,Duke,150,Duke,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Texas,AP_TOP25,6,2026-11-16,Texas,251,Texas,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Connecticut,AP_TOP25,7,2026-11-16,UConn,41,UConn,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Iowa,AP_TOP25,8,2026-11-16,Iowa,2294,Iowa,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+LSU,AP_TOP25,9,2026-11-16,LSU,99,LSU,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+UCLA,AP_TOP25,10,2026-11-16,UCLA,26,UCLA,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Vanderbilt,AP_TOP25,11,2026-11-16,Vanderbilt,238,Vanderbilt,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Kentucky,AP_TOP25,12,2026-11-16,Kentucky,96,Kentucky,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Notre Dame,AP_TOP25,13,2026-11-16,Notre Dame,87,Notre Dame,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Oklahoma,AP_TOP25,14,2026-11-16,Oklahoma,201,Oklahoma,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+TCU,AP_TOP25,15,2026-11-16,TCU,2628,TCU,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Washington,AP_TOP25,16,2026-11-16,Washington,264,Washington,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Minnesota,AP_TOP25,17,2026-11-16,Minnesota,135,Minnesota,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Maryland,AP_TOP25,18,2026-11-16,Maryland,120,Maryland,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Mississippi,AP_TOP25,19,2026-11-16,Ole Miss,145,Ole Miss,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Ohio State,AP_TOP25,19,2026-11-16,Ohio St.,194,Ohio St.,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Illinois,AP_TOP25,21,2026-11-16,Illinois,356,Illinois,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+West Virginia,AP_TOP25,22,2026-11-16,West Virginia,277,West Virginia,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Nebraska,AP_TOP25,23,2026-11-16,Nebraska,158,Nebraska,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+North Carolina,AP_TOP25,24,2026-11-16,North Carolina,153,North Carolina,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Oklahoma State,AP_TOP25,25,2026-11-16,Oklahoma St.,197,Oklahoma St.,EXACT_VALIDATED,College Poll Archive — AP November 16 2026,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+California,WATCHLIST,,,California,25,California,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Tennessee,WATCHLIST,,,Tennessee,2633,Tennessee,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Baylor,WATCHLIST,,,Baylor,239,Baylor,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Texas Tech,WATCHLIST,,,Texas Tech,2641,Texas Tech,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Georgia,WATCHLIST,,,Georgia,61,Georgia,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Richmond,WATCHLIST,,,Richmond,257,Richmond,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Michigan State,WATCHLIST,,,Michigan St.,127,Michigan St.,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Iowa State,WATCHLIST,,,Iowa St.,66,Iowa St.,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Virginia,WATCHLIST,,,Virginia,258,Virginia,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Princeton,WATCHLIST,,,Princeton,163,Princeton,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Alabama,WATCHLIST,,,Alabama,333,Alabama,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Fairfield,WATCHLIST,,,Fairfield,2217,Fairfield,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Arizona State,WATCHLIST,,,Arizona St.,9,Arizona St.,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Colorado,WATCHLIST,,,Colorado,38,Colorado,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Rice,WATCHLIST,,,Rice,242,Rice,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Stanford,WATCHLIST,,,Stanford,24,Stanford,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Oregon,WATCHLIST,,,Oregon,2483,Oregon,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Florida,WATCHLIST,,,Florida,57,Florida,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+Clemson,WATCHLIST,,,Clemson,228,Clemson,EXACT_VALIDATED,User watchlist 2026-11-23,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:31:58.016246+00:00,False
+NC State,WATCHLIST,,,NC State,152,NC State,EXACT_VALIDATED,User-requested NC State addition on 2026-11-23; earlier eight-team feed validation,ap_2026_11_16_plus_watchlist_20_with_nc_state_2026_11_23,2026-11-23T11:32:04.196572+00:00,True

@@ -7,6 +7,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import yaml
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -87,6 +89,14 @@ class TemplateRepoTests(unittest.TestCase):
         tmpdir, repo_copy = copy_repo_to_tmp()
         self.addCleanup(tmpdir.cleanup)
 
+        # Exercise the warning independently of this project's configured data files.
+        config_path = repo_copy / "project_config.yml"
+        config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+        config["data"]["expected_files"] = [
+            {"path": "data/processed/optional_test_fixture.csv", "required": False}
+        ]
+        config_path.write_text(yaml.safe_dump(config), encoding="utf-8")
+
         result = run([sys.executable, "scripts/validate_data.py"], cwd=repo_copy)
         self.assertEqual(result.returncode, 0, msg=result.stderr)
 
@@ -95,7 +105,9 @@ class TemplateRepoTests(unittest.TestCase):
         summary = json.loads(summary_path.read_text())
 
         self.assertEqual("warning", summary["status"])
-        self.assertGreaterEqual(len(summary["warnings"]), 1)
+        self.assertEqual(
+            ["data/processed/optional_test_fixture.csv is missing"], summary["warnings"]
+        )
         self.assertTrue((repo_copy / "reports" / "validation_summary.md").exists())
 
     def test_publish_check_passes_with_placeholder_files(self):
@@ -120,3 +132,4 @@ class TemplateRepoTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -7,3 +7,10 @@ vendor/
 .DS_Store
 .ipynb_checkpoints/
 *.log
+
+*.py[cod]
+.pytest_cache/
+.staging/
+*.egg-info/
+data/raw/*
+!data/raw/.gitkeep
