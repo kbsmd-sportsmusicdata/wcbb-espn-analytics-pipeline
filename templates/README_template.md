@@ -43,3 +43,19 @@ The Python pipeline needs internet to reach ESPN Analytics. The workspace that p
 All provider source URLs, retrieval timestamps, raw SHA-256 hashes, sample counts and join exceptions are stored in `reports/manifest_latest.json`, and each snapshot includes its own manifest. Missing team IDs outside the cohort remain excluded from *cohort* tables; see [QA documentation](docs/QA_GATES.md). Player/team source disagreements are preserved as a separate table and reported as `PASS_WITH_REVIEW` rather than silently corrected.
 
 **Data rights:** Provider feeds are public to view, but licensing/republication terms have not been verified. Repository visibility is managed separately from ingestion; the repository is currently public. Don't use ESPN-sourced metrics as a substitute for independently validated game-level records or mix them with SDV/RAPM models without explicit labels.
+
+## Phase 1 processed player features
+
+Validated, independently derived features are published separately under `data/processed/`:
+
+- `player_features.parquet` and `player_features.csv`: one row per player-season.
+- `player_skill_features.parquet` and `player_skill_features.csv`: one row per player-season-skill.
+- `player_features.duckdb`: both tables, ready for DuckDB queries.
+- `season=2025/` and `season=2026/`: per-season Parquet and CSV tables.
+- `snapshots/<source-run-id>/`: versioned copies with a processed QA manifest.
+
+All original source columns remain intact. New per-100 rates normalize accumulated fingerprint contributions using ESPN source possessions; they are not official ESPN ratings or a composite evaluation score. Explicit source position, exposure, assisted-rate context and evidence labels accompany the rates. Existing full-source raw skill percentiles are preserved, not recalculated on the 45 teams or new rates.
+
+See the [20-feature dictionary](docs/player_feature_dictionary.md), [QA summary](docs/player_feature_qa_summary.md), [thresholds](data/reference/player_feature_rules_v1.json), [skill taxonomy](data/reference/skill_taxonomy_v1.csv), and [DuckDB queries](sql/player_feature_examples.sql). The existing Tuesday/Friday refresh stages features after source QA and publishes only after critical feature QA passes. The combined manifest records review flags as PASS_WITH_REVIEW.
+
+For a one-time backfill from already validated local source tables, use `python scripts/build_player_features.py`; the normal refresh performs this step automatically. No additional schedule is required.

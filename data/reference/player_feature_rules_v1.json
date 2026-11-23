@@ -1,0 +1,59 @@
+{
+  "version": "phase1_v1",
+  "minutes_sample_thresholds": [
+    50,
+    200,
+    500
+  ],
+  "games_sample_thresholds": [
+    3,
+    10,
+    20
+  ],
+  "sample_labels": [
+    "Very small",
+    "Small",
+    "Developing",
+    "Established"
+  ],
+  "playing_time_thresholds": [
+    6,
+    16,
+    28
+  ],
+  "playing_time_labels": [
+    "Minimal",
+    "Limited rotation",
+    "Regular rotation",
+    "Rotation anchor"
+  ],
+  "ready_minutes": 200,
+  "ready_games": 10,
+  "context_min_minutes": 50,
+  "context_min_games": 3,
+  "context_min_possessions": 100,
+  "assisted_low": 0.4,
+  "assisted_high": 0.7,
+  "balance_relative_tolerance": 0.2,
+  "regulation_minutes": 40,
+  "position_mapping": {
+    "G": "Guard",
+    "PG": "Guard",
+    "SG": "Guard",
+    "SF": "Wing",
+    "W": "Wing",
+    "F": "Forward",
+    "PF": "Forward",
+    "C": "Center",
+    "G/F": "Hybrid",
+    "F/C": "Hybrid",
+    "G-F": "Hybrid",
+    "F-C": "Hybrid"
+  },
+  "native_fraction_columns": [
+    "fingerprint_usage",
+    "fingerprint_assisted_rate",
+    "TOV%"
+  ],
+  "notes": "Operational descriptive thresholds, not calibrated scouting benchmarks. Counts use observed fingerprint season minutes and appearances. Unknown classifications preserve inadequate evidence."
+}

@@ -1,0 +1,22 @@
+skill,functional_skill_group,interpretation
+2pt,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+2ptShooting,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+3pt,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+3ptShooting,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+corner,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+cutting,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+driving,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+fade,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+floating,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+freethrow,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+hook,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+layup,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+mid,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+rim,Scoring / finishing,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+assist,Creation / playmaking,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+badpass,Possession management,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+foul,Foul activity,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+putback,Rebounding / second chance,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+rebound,Rebounding / second chance,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+turnover,Possession management / defensive activity,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.
+fastbreak,Transition,Descriptive source-skill family; both offensive and defensive components retained. Categories overlap; do not sum groups into a score.

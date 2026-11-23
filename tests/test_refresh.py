@@ -96,6 +96,11 @@ def test_refresh_recovers_and_retains_frozen_source_provenance(tmp_path, monkeyp
     from datetime import datetime, timezone
     import wcbb_espn.refresh as refresh
 
+    import shutil
+    reference = tmp_path / 'data/reference'
+    reference.mkdir(parents=True)
+    for name in ['player_feature_rules_v1.json','skill_taxonomy_v1.csv']:
+        shutil.copy2(Path(__file__).resolve().parents[1]/'data/reference'/name, reference/name)
     td, fp = synthetic()
     cohort = small_cohort()
     calls = []
@@ -110,6 +115,7 @@ def test_refresh_recovers_and_retains_frozen_source_provenance(tmp_path, monkeyp
         calls.append(season)
         at = '2026-11-23T18:00:00Z' if season == 2025 else clock[0].strftime('%Y-%m-%dT%H:%M:%SZ')
         frames = build_frames(td, fp, cohort, season, at)
+        frames['skill_impacts']['skill'] = frames['skill_impacts']['skill'].replace({'passing':'assist'})
         qa = summarize_qa(frames, cohort, season)
         qa.update(retrieved_utc=at, sources={name: {
             'url': f'{refresh.API}/{route}?league=wcbb&season={season}',
@@ -134,6 +140,40 @@ def test_refresh_recovers_and_retains_frozen_source_provenance(tmp_path, monkeyp
         assert result['qa'][0]['retrieved_utc'] == '2026-11-23T18:00:00Z'
         assert all(p.read_bytes() == content for p, content in frozen.items())
         assert json.loads(sidecar.read_text())['sources'] == first['qa'][0]['sources']
+
+
+    # A critical processed-data failure must leave every published source/feature file intact.
+    import wcbb_espn.features as features
+    previous = {p: p.read_bytes() for folder in ['data/latest','data/frozen','data/processed','reports']
+                for p in (tmp_path/folder).rglob('*') if p.is_file()}
+    def fail_features(*args, **kwargs):
+        raise PipelineValidationError('critical feature QA failure')
+    original_build = features.build_features
+    monkeypatch.setattr(features, 'build_features', fail_features)
+    clock[0] = clock[0].replace(second=3)
+    with pytest.raises(PipelineValidationError, match='critical feature QA'):
+        refresh.refresh_repository(tmp_path)
+    assert all(p.read_bytes() == content for p,content in previous.items())
+    assert {p for folder in ['data/latest','data/frozen','data/processed','reports']
+            for p in (tmp_path/folder).rglob('*') if p.is_file()} == set(previous)
+
+
+    monkeypatch.setattr(features, 'build_features', original_build)
+    original_copy = shutil.copy2
+    failed = [False]
+    def fail_mid_copy(source, destination, *args, **kwargs):
+        if Path(destination) == tmp_path/'data/processed/player_skill_features.parquet' and not failed[0]:
+            failed[0] = True
+            raise OSError('simulated publication copy failure')
+        return original_copy(source, destination, *args, **kwargs)
+    monkeypatch.setattr(shutil, 'copy2', fail_mid_copy)
+    clock[0] = clock[0].replace(second=4)
+    with pytest.raises(OSError, match='publication copy failure'):
+        refresh.refresh_repository(tmp_path)
+    assert failed[0]
+    assert all(p.read_bytes() == content for p,content in previous.items())
+    assert {p for folder in ['data/latest','data/frozen','data/processed','reports']
+            for p in (tmp_path/folder).rglob('*') if p.is_file()} == set(previous)
 
 
 @pytest.mark.parametrize('record', [None, {'api_season': 2025, 'retrieved_utc': 'wrong'},

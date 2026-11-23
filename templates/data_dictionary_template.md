@@ -37,3 +37,7 @@
 | `rejection_reason` | Why a source team-stat row is quarantined |
 
 The manifest adds run ID, status, row counts, source hashes/byte counts, player-ID changes, and snapshot location. Frozen baseline provenance retains its original retrieval time; it is not relabeled with each refresh time. Fields prefixed `team_stat_`, BPI fields, and original player columns remain source-defined; consult ESPN rather than assuming cross-model equivalence.
+
+## Processed feature layer
+
+See [Phase 1 feature dictionary](player_feature_dictionary.md) for all added fields, exact formulas, units, inputs, null rules, populations and provenance. Source-normalized fields above are unchanged.

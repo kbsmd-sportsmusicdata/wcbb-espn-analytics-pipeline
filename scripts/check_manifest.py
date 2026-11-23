@@ -14,3 +14,15 @@ for family,tables in {'wcbb_espn_team_netpoints':['team_season','four_factors','
     for name in tables:
         assert (ROOT/'data/latest'/family/f'{name}.parquet').is_file(),(family,name)
 print('45 teams, two seasons, both DuckDB data families: manifest and files verified')
+# Processed features are certified against the same source run and output hashes.
+import hashlib
+processed=ROOT/'data/processed'
+features=json.loads((processed/'manifest.json').read_text())
+assert features['status'] in ('PASS','PASS_WITH_REVIEW')
+assert features['source_run_id']==s['run_id']
+assert s['processed_features']['source_run_id']==s['run_id']
+for name,digest in features['output_sha256'].items():
+    assert hashlib.sha256((processed/name).read_bytes()).hexdigest()==digest,name
+assert (processed/'player_features.parquet').is_file()
+assert (processed/'player_skill_features.parquet').is_file()
+print('Processed player/skill outputs match the validated source run and file hashes')

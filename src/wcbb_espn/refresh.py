@@ -290,26 +290,56 @@ def refresh_repository(root:Path,current_season:int=2026) -> dict:
                   "source_lineage":"ESPN Analytics public /api/team-data and /api/fingerprint-data",
                   "snapshot_policy":"frozen 2025-26, rolling 2026-27; prior files preserved on failed QA",
                   "published_espn_percentiles":False}
-        # Files are promoted only AFTER complete source collection, QA, exports and DB build.
+        from .features import write_feature_bundle
+        players = pd.concat([combined[y]['player_season'] for y in sorted(combined)], ignore_index=True)
+        skills = pd.concat([combined[y]['skill_impacts'] for y in sorted(combined)], ignore_index=True)
+        feature_qa = write_feature_bundle(players, skills, root, stage/'processed', manifest)
+        manifest['processed_features'] = feature_qa
+        if feature_qa['status'] == 'PASS_WITH_REVIEW':
+            manifest['status'] = 'PASS_WITH_REVIEW'
+        manifest['processed_snapshot_path'] = f'data/processed/snapshots/{run_id}'
+        from .publication import publication_transaction
+        targets = [root/'reports/manifest_latest.json', root/manifest['snapshot_path']/'manifest.json']
+        mappings = [(stage/'processed', root/'data/processed'),
+                    (stage/'processed', root/manifest['processed_snapshot_path']),
+                    (stage/'latest', root/'data/latest'),
+                    (stage/f'season={current_season}', root/f'data/latest/season={current_season}'),
+                    (stage/f'season={current_season}', root/manifest['snapshot_path']/'season=2026')]
         if baseline_needed:
-            shutil.copytree(stage/"frozen/season=2025",frozen_folder,dirs_exist_ok=False)
-        elif not (frozen_folder / 'provenance.json').exists():
-            shutil.copy2(provenance, frozen_folder / 'provenance.json')
-        latest=root/"data/latest"
-        latest.mkdir(parents=True,exist_ok=True)
-        for child in (stage/"latest").iterdir():
-            if child.is_dir():
-                shutil.copytree(child,latest/child.name,dirs_exist_ok=True)
-            else:
-                shutil.copy2(child,latest/child.name)
-        current_latest=root/f"data/latest/season={current_season}"
-        shutil.copytree(stage/f"season={current_season}",current_latest,dirs_exist_ok=True)
-        snapshots=root/manifest["snapshot_path"]
-        shutil.copytree(stage/f"season={current_season}",snapshots/"season=2026")
-        (snapshots/"manifest.json").write_text(json.dumps(manifest,indent=2,default=str),encoding="utf-8")
-        (root/"reports").mkdir(parents=True,exist_ok=True)
-        (root/"reports/manifest_latest.json").write_text(json.dumps(manifest,indent=2,default=str),encoding="utf-8")
-        return manifest
+            mappings.append((stage/'frozen/season=2025', frozen_folder))
+        elif not (frozen_folder/'provenance.json').exists():
+            targets.append(frozen_folder/'provenance.json')
+        for source,destination in mappings:
+            targets.extend(destination/p.relative_to(source) for p in source.rglob('*') if p.is_file())
+        with publication_transaction(stage, targets):
+            # Files are promoted only AFTER complete source collection, QA, exports and DB build.
+            if baseline_needed:
+                shutil.copytree(stage/"frozen/season=2025",frozen_folder,dirs_exist_ok=False)
+            elif not (frozen_folder / 'provenance.json').exists():
+                shutil.copy2(provenance, frozen_folder / 'provenance.json')
+            processed = root/'data/processed'
+            processed.mkdir(parents=True, exist_ok=True)
+            shutil.copytree(stage/'processed', root/manifest['processed_snapshot_path'])
+            for child in (stage/'processed').iterdir():
+                if child.is_dir():
+                    shutil.copytree(child, processed/child.name, dirs_exist_ok=True)
+                else:
+                    shutil.copy2(child, processed/child.name)
+            latest=root/"data/latest"
+            latest.mkdir(parents=True,exist_ok=True)
+            for child in (stage/"latest").iterdir():
+                if child.is_dir():
+                    shutil.copytree(child,latest/child.name,dirs_exist_ok=True)
+                else:
+                    shutil.copy2(child,latest/child.name)
+            current_latest=root/f"data/latest/season={current_season}"
+            shutil.copytree(stage/f"season={current_season}",current_latest,dirs_exist_ok=True)
+            snapshots=root/manifest["snapshot_path"]
+            shutil.copytree(stage/f"season={current_season}",snapshots/"season=2026")
+            (snapshots/"manifest.json").write_text(json.dumps(manifest,indent=2,default=str),encoding="utf-8")
+            (root/"reports").mkdir(parents=True,exist_ok=True)
+            (root/"reports/manifest_latest.json").write_text(json.dumps(manifest,indent=2,default=str),encoding="utf-8")
+            return manifest
     finally:
         # No raw bytes in the git commit. Workflow separately uploads raw captures as artifact if desired.
         shutil.rmtree(stage,ignore_errors=True)
