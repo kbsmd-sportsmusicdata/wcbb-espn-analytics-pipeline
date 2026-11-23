@@ -192,9 +192,11 @@ def build_frames(team_data: Mapping[str, object], fingerprints: Mapping[str, obj
         return frame
     team_season=decorate(team_season)
     four=decorate(f4)
-    bpi_out=decorate(bp)
+    # DuckDB treats TEAM_ID and team_id as the same identifier, even when quoted.
+    # Preserve the original value under a distinct name before exporting.
+    bpi_out=decorate(bp.rename(columns={"TEAM_ID":"source_team_id"}))
     unkeyed_team_stats=decorate(unkeyed_team_stats,key="unkeyed")
-    players=decorate(p)
+    players=decorate(p.rename(columns={"TEAM_ID":"source_team_id"}))
     skill_out=skill_out.merge(players[["player_id","team_id","team_requested","cohort","ap_rank"]],on="player_id",how="left",validate="many_to_one")
     skill_out=decorate(skill_out,key="player_id")
     diff=diff.merge(players[["player_id","team_requested","cohort"]],on="player_id",validate="one_to_one")

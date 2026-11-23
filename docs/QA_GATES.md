@@ -18,7 +18,9 @@ Source API:
 - `https://espnanalytics.com/api/team-data?league=wcbb&season=2026`
 - `https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2026`
 
-The team endpoint's JSON nests stringified row JSON under `team4f`, `team_stats`, `bpi_stats`, `plyr_stats`. The fingerprint endpoint is a player-ID-keyed object. `digital_team_id` and `TEAM_ID` are cross-family IDs; `tmID` is a different source field and must **not** be substituted as the canonical ESPN team ID.
+The team endpoint nests JSON tables under `team4f`, `team_stats`, `bpi_stats`, `plyr_stats`. The live feeds return column-indexed objects such as `{"TEAM_ID":{"0":"152"},"BPI":{"0":15.0}}`, often encoded as JSON strings. The parser converts these to row records by matching source row indices, while also accepting existing row-record lists. Empty tables, malformed column structures, and inconsistent row indices still stop publication. The fingerprint endpoint is a player-ID-keyed object. `digital_team_id` and `TEAM_ID` are cross-family IDs; `tmID` is a different source field and must **not** be substituted as the canonical ESPN team ID.
+
+In exported BPI and player tables, the original `TEAM_ID` value is named `source_team_id`, while `team_id` is the canonical numeric join key. This prevents DuckDB's case-insensitive identifiers from renaming one of the two fields during export. Parquet reloads disable automatic directory partition columns; the explicit `api_season` and `academic_season` columns remain authoritative.
 
 ## Cohort
 

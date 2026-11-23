@@ -26,9 +26,9 @@ API = "https://espnanalytics.com/api"
 
 
 def parse_response(value: Mapping[str, object]) -> dict[str, list]:
-    """Parse nested JSON strings returned by the ESPN team-data route."""
-    needed = set(("team4f", "team_stats", "bpi_stats", "plyr_stats"))
-    missing = needed.difference(value)
+    """Normalize ESPN's column-indexed tables or row records into row records."""
+    needed = ("team4f", "team_stats", "bpi_stats", "plyr_stats")
+    missing = set(needed).difference(value)
     if missing:
         raise PipelineValidationError(f"missing ESPN JSON family {sorted(missing)}")
     result = {}
@@ -39,6 +39,14 @@ def parse_response(value: Mapping[str, object]) -> dict[str, list]:
                 rows=json.loads(rows)
             except json.JSONDecodeError as exc:
                 raise PipelineValidationError(f"invalid JSON in {key}") from exc
+        if isinstance(rows, dict) and rows:
+            if not all(isinstance(column, dict) for column in rows.values()):
+                raise PipelineValidationError(f"invalid {key} column-indexed JSON")
+            indices = list(next(iter(rows.values())))
+            if any(set(column) != set(indices) for column in rows.values()):
+                raise PipelineValidationError(f"{key} column row indices differ")
+            # Align by the provider's index, not each column's insertion order.
+            rows = [{name: column[index] for name, column in rows.items()} for index in indices]
         if not isinstance(rows,list) or not rows or not all(isinstance(r,dict) for r in rows):
             raise PipelineValidationError(f"invalid or empty {key} JSON rows")
         result[key]=rows
@@ -146,7 +154,7 @@ def write_parquet(frame:pd.DataFrame,destination:Path) -> None:
 def read_parquet(path:Path) -> pd.DataFrame:
     con=_duckdb().connect(database=":memory:")
     try:
-        return con.execute("SELECT * FROM read_parquet(?)",[str(path)]).df()
+        return con.execute("SELECT * FROM read_parquet(?, hive_partitioning=false)",[str(path)]).df()
     finally:
         con.close()
 
