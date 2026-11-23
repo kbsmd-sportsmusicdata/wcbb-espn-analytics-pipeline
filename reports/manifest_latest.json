@@ -1,0 +1,87 @@
+{
+  "run_id": "20261123T205449Z",
+  "status": "PASS",
+  "source_api_seasons": [
+    2025,
+    2026
+  ],
+  "current_season": 2026,
+  "academic_season": "2026-27",
+  "cohort_count": 45,
+  "qa": [
+    {
+      "api_season": 2025,
+      "academic_season": "2025-26",
+      "status": "PASS",
+      "team_count": 45,
+      "player_count": 564,
+      "fingerprint_player_count": 564,
+      "skill_impact_rows": 11844,
+      "four_factor_rows": 135,
+      "bpi_rows": 45,
+      "team_id_discrepancies": 0,
+      "unkeyed_source_team_stats_rows": 0,
+      "max_team_netpoints_component_delta": 0.016667,
+      "percentile_universe": "FULL SOURCE SEASON, NOT SELECTED 45 TEAMS",
+      "independent_roster_verification": "NOT_PERFORMED",
+      "sources": {
+        "team_data": {
+          "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2025",
+          "sha256": "c25b2b149eb709d17d5608acd6031bc5a4cb6a8e6b46e2f426bec7752206a35d",
+          "bytes": 3134931
+        },
+        "fingerprint_data": {
+          "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2025",
+          "sha256": "a04efd802df947fb1cf3643dc62d6dd62bb7cd7d85234b0cd78c40ec06ac495c",
+          "bytes": 14497692
+        }
+      },
+      "retrieved_utc": "2026-11-23T20:54:47Z"
+    },
+    {
+      "api_season": 2026,
+      "academic_season": "2026-27",
+      "status": "PASS",
+      "team_count": 45,
+      "player_count": 549,
+      "fingerprint_player_count": 549,
+      "skill_impact_rows": 11529,
+      "four_factor_rows": 135,
+      "bpi_rows": 45,
+      "team_id_discrepancies": 0,
+      "unkeyed_source_team_stats_rows": 10,
+      "max_team_netpoints_component_delta": 0.05,
+      "percentile_universe": "FULL SOURCE SEASON, NOT SELECTED 45 TEAMS",
+      "independent_roster_verification": "NOT_PERFORMED",
+      "sources": {
+        "team_data": {
+          "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2026",
+          "sha256": "6bee5511f5404d3808073d5db896341999fb26817c471d319010145599687314",
+          "bytes": 3461178
+        },
+        "fingerprint_data": {
+          "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2026",
+          "sha256": "9a1357a604eca77f920b1ddec0630e2b343fd8bc14f4a6abf67937255847bf9b",
+          "bytes": 16624289
+        }
+      },
+      "retrieved_utc": "2026-11-23T20:54:48Z",
+      "player_identity_changes": {
+        "added": [],
+        "removed": []
+      }
+    }
+  ],
+  "snapshot_path": "data/snapshots/20261123T205449Z",
+  "hex_reference_player_counts_2026_11_23": {
+    "2025": 564,
+    "2026": 548
+  },
+  "player_count_deltas_from_reference": {
+    "2025": 0,
+    "2026": 1
+  },
+  "source_lineage": "ESPN Analytics public /api/team-data and /api/fingerprint-data",
+  "snapshot_policy": "frozen 2025-26, rolling 2026-27; prior files preserved on failed QA",
+  "published_espn_percentiles": false
+}
