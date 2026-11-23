@@ -1,0 +1,29 @@
+{
+  "api_season": 2025,
+  "academic_season": "2025-26",
+  "status": "PASS",
+  "team_count": 45,
+  "player_count": 564,
+  "fingerprint_player_count": 564,
+  "skill_impact_rows": 11844,
+  "four_factor_rows": 135,
+  "bpi_rows": 45,
+  "team_id_discrepancies": 0,
+  "unkeyed_source_team_stats_rows": 0,
+  "max_team_netpoints_component_delta": 0.016667,
+  "percentile_universe": "FULL SOURCE SEASON, NOT SELECTED 45 TEAMS",
+  "independent_roster_verification": "NOT_PERFORMED",
+  "sources": {
+    "team_data": {
+      "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2025",
+      "sha256": "c25b2b149eb709d17d5608acd6031bc5a4cb6a8e6b46e2f426bec7752206a35d",
+      "bytes": 3134931
+    },
+    "fingerprint_data": {
+      "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2025",
+      "sha256": "a04efd802df947fb1cf3643dc62d6dd62bb7cd7d85234b0cd78c40ec06ac495c",
+      "bytes": 14497692
+    }
+  },
+  "retrieved_utc": "2026-11-23T20:54:47Z"
+}

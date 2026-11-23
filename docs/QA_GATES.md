@@ -50,3 +50,7 @@ Due to source model differences, never treat `BPI`, player `TNETPTS`, team `tota
 The refresh manifest includes original endpoint URLs, UTC retrieval timestamp, response byte length, SHA-256, exact row counts and QA statuses. Raw source JSON is **not** committed to Git; source rights for bulk redistribution have not been verified. Keep the new repo private while source permission is assessed, and preserve the attribution and provider links.
 
 GitHub Actions scheduled runs can be delayed; they are not a transactional real-time feed. On an unsuccessful run, the job fails before Git commits anything, leaving the last remote snapshot untouched. Check the Actions job log and last manifest before presenting current-season reports.
+
+## Frozen source provenance
+
+The baseline retains its original source metadata in `data/frozen/season=2025/provenance.json`. Subsequent QA summaries carry forward the same URLs, response hashes, byte counts, and retrieval time. Existing repositories recover a missing provenance file from a matching snapshot manifest. Metadata must match the frozen table retrieval time and contain both historical source URLs and valid SHA-256 hashes; otherwise publication stops. Recovery never refetches or rewrites the baseline Parquet tables.

@@ -199,6 +199,43 @@ def write_combined_duckdb(frames_by_season:dict[int,dict[str,pd.DataFrame]],coho
         db.close()
 
 
+def baseline_qa(root: Path, frames: dict[str, pd.DataFrame], cohort: pd.DataFrame) -> dict:
+    """Recover original provenance only when it matches the frozen retrieval timestamp."""
+    qa = summarize_qa(frames, cohort, 2025)
+    timestamps = set(frames['team_season'].retrieval_utc.dropna().astype(str))
+    sidecar = root / 'data/frozen/season=2025/provenance.json'
+    candidates = [sidecar, *sorted((root / 'data/snapshots').glob('*/manifest.json')),
+                  root / 'reports/manifest_latest.json']
+    for path in candidates:
+        if not path.is_file():
+            continue
+        try:
+            document = json.loads(path.read_text(encoding='utf-8'))
+            records = [document] if path == sidecar else document.get('qa', [])
+            for original in records:
+                if not isinstance(original, dict) or original.get('api_season') != 2025:
+                    continue
+                sources = original.get('sources', {})
+                if not isinstance(sources, dict) or set(sources) != {'team_data', 'fingerprint_data'}:
+                    continue
+                valid = True
+                for name, route in [('team_data', 'team-data'), ('fingerprint_data', 'fingerprint-data')]:
+                    source = sources[name]
+                    if not isinstance(source, dict):
+                        valid = False
+                        break
+                    digest = source.get('sha256', '')
+                    valid = valid and isinstance(digest, str) and len(digest) == 64 and all(c in '0123456789abcdef' for c in digest)
+                    valid = valid and source.get('url') == f'{API}/{route}?league=wcbb&season=2025' and source.get('bytes', 0) > 0
+                if not valid or timestamps != {original.get('retrieved_utc')}:
+                    continue
+                qa.update(sources=sources, retrieved_utc=original['retrieved_utc'])
+                return qa
+        except (ValueError, TypeError, AttributeError):
+            continue
+    raise PipelineValidationError('Frozen baseline provenance unavailable or mismatched; restore its original snapshot manifest')
+
+
 def refresh_repository(root:Path,current_season:int=2026) -> dict:
     """Qualify all required sources before any published file is overwritten."""
     if current_season!=2026:
@@ -220,7 +257,10 @@ def refresh_repository(root:Path,current_season:int=2026) -> dict:
             qa.append(oldqa)
         else:
             combined[2025]=load_family_tables(frozen_folder)
-            qa.append(summarize_qa(combined[2025],cohort,2025))
+            qa.append(baseline_qa(root,combined[2025],cohort))
+        provenance = stage / 'frozen/season=2025/provenance.json'
+        provenance.parent.mkdir(parents=True, exist_ok=True)
+        provenance.write_text(json.dumps(qa[0], indent=2), encoding='utf-8')
         current,currentqa=fetch_one_season(current_season,cohort,stage)
         combined[current_season]=current
         qa.append(currentqa)
@@ -253,6 +293,8 @@ def refresh_repository(root:Path,current_season:int=2026) -> dict:
         # Files are promoted only AFTER complete source collection, QA, exports and DB build.
         if baseline_needed:
             shutil.copytree(stage/"frozen/season=2025",frozen_folder,dirs_exist_ok=False)
+        elif not (frozen_folder / 'provenance.json').exists():
+            shutil.copy2(provenance, frozen_folder / 'provenance.json')
         latest=root/"data/latest"
         latest.mkdir(parents=True,exist_ok=True)
         for child in (stage/"latest").iterdir():

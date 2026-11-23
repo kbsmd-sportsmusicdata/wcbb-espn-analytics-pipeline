@@ -1,42 +1,31 @@
-# Project Handoff: {{ project.title }}
+# Project handoff
 
-## Current Status
+## Current state
 
-{{ project.status }}
+The repository is operational: the first manual GitHub refresh published validated DuckDB and Parquet outputs on November 23, 2026. The first scheduled execution remains to be observed. GitHub Pages publication is disabled for this data pipeline.
 
-## Project Purpose
+## Run and inspect
 
-{{ project.description }}
+1. Open Actions → ESPN Analytics WCBB — validated refresh → Run workflow on `main`.
+2. Confirm that source fetching, manifest verification, and the data commit succeed.
+3. Inspect `reports/manifest_latest.json` and the matching dated snapshot.
+4. Use `data/latest/wcbb_espn_data_families.duckdb` or the Parquet tables under `data/latest/`.
 
-## Key Deliverables
+The schedule is Tuesday and Friday at 9:15 a.m. America/Los_Angeles. Scheduling is best effort. The historical 2025–26 baseline is frozen; only 2026–27 is downloaded on subsequent refreshes.
 
-- Primary deliverable: {{ outputs.primary_deliverable }}
-- Notebook: `{{ outputs.notebook_path }}`
-- Executive summary: `docs/executive_summary.md`
-- Methodology: `docs/methodology.md`
-- Data dictionary: `docs/data_dictionary.md`
-- Validation report: `docs/validation_report.md`
+## Maintenance commands
 
-## Important Scripts
+```bash
+pip install -r requirements.txt
+PYTHONPATH=src python -m pytest -q tests
+python scripts/refresh_wcbb.py --season 2026
+python scripts/check_manifest.py
+```
 
-- `scripts/init_project.py`
-- `scripts/generate_docs.py`
-- `scripts/generate_readme.py`
-- `scripts/validate_data.py`
-- `scripts/publish_check.py`
+`generate_docs.py` and `generate_readme.py` regenerate this repository's pipeline documentation from its customized templates. The original sports analytics template repository is separate and unchanged.
 
-## Known Limitations
+## Recovery and limitations
 
-{% for limitation in notes.limitations %}
-- {{ limitation }}
-{% endfor %}
+A missing baseline `provenance.json` is recovered from matching committed snapshot metadata on the next successful refresh. Missing or mismatched provenance stops the job. Do not delete frozen tables to force a refetch; historical corrections require a separately reviewed backfill.
 
-## Next Steps
-
-{% for step in notes.next_steps %}
-- {{ step }}
-{% endfor %}
-
-## Deployment Notes
-
-GitHub Pages should deploy `notebooks/index.html` through the workflow in `.github/workflows/deploy_pages.yml`.
+Use the most recent passing manifest to assess freshness after failures. Current-season metrics can change. Cohort AP labels remain fixed to November 16. Provider redistribution terms and independent roster availability are not verified; repository visibility is managed separately.

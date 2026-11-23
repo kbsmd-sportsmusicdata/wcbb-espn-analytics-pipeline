@@ -3,7 +3,7 @@ project:
   slug: 'wcbb-espn-analytics-pipeline'
   subtitle: '45-team NCAA D1 WBB live data ingestion and DuckDB QA'
   description: 'Twice-weekly source-preserving ESPN Analytics WCBB ingestion for 25 AP-ranked teams and 20 watchlist teams.'
-  status: 'data-pipeline'
+  status: 'operational'
   sport: "Women's Basketball"
   league: 'NCAA Division I WCBB'
   season: '2026-27'
@@ -64,5 +64,5 @@ publishing:
   include_methodology_link: true
   include_data_dictionary_link: true
 notes:
-  limitations: ['ESPN public data terms have not been verified for republishing; keep repo private initially.', 'Current season is partial and source can change retrospectively.']
-  next_steps: ['Manually run the GitHub Actions refresh after repo creation', 'Inspect run manifest and exact row counts']
+  limitations: ['ESPN redistribution terms have not been independently verified; visibility is managed separately.', 'Current season is partial and source can change retrospectively.']
+  next_steps: ['Observe the first scheduled refresh', 'Inspect each manifest before downstream use']

@@ -89,3 +89,63 @@ def test_delta_reports_players_added_removed():
     new={502,503}
     changes=compare_snapshot_ids(old,new)
     assert changes=={'added':[503],'removed':[501]}
+
+
+def test_refresh_recovers_and_retains_frozen_source_provenance(tmp_path, monkeypatch):
+    import hashlib
+    from datetime import datetime, timezone
+    import wcbb_espn.refresh as refresh
+
+    td, fp = synthetic()
+    cohort = small_cohort()
+    calls = []
+    clock = [datetime(2026, 11, 23, 20, 0, 0, tzinfo=timezone.utc)]
+
+    class Clock:
+        @staticmethod
+        def now(tz):
+            return clock[0]
+
+    def fetch(season, cohort, staging):
+        calls.append(season)
+        at = '2026-11-23T18:00:00Z' if season == 2025 else clock[0].strftime('%Y-%m-%dT%H:%M:%SZ')
+        frames = build_frames(td, fp, cohort, season, at)
+        qa = summarize_qa(frames, cohort, season)
+        qa.update(retrieved_utc=at, sources={name: {
+            'url': f'{refresh.API}/{route}?league=wcbb&season={season}',
+            'sha256': hashlib.sha256(name.encode()).hexdigest(), 'bytes': 1234
+        } for name, route in [('team_data', 'team-data'), ('fingerprint_data', 'fingerprint-data')]})
+        return frames, qa
+
+    monkeypatch.setattr(refresh, 'load_cohort', lambda path: cohort)
+    monkeypatch.setattr(refresh, 'fetch_one_season', fetch)
+    monkeypatch.setattr(refresh, 'datetime', Clock)
+    first = refresh.refresh_repository(tmp_path)
+    sidecar = tmp_path / 'data/frozen/season=2025/provenance.json'
+    assert json.loads(sidecar.read_text())['sources'] == first['qa'][0]['sources']
+    frozen = {p: p.read_bytes() for p in sidecar.parent.rglob('*.parquet')}
+    sidecar.unlink()  # Existing repositories have only the original snapshot manifest.
+    for second in (1, 2):
+        calls.clear()
+        clock[0] = clock[0].replace(second=second)
+        result = refresh.refresh_repository(tmp_path)
+        assert calls == [2026]
+        assert result['qa'][0]['sources'] == first['qa'][0]['sources']
+        assert result['qa'][0]['retrieved_utc'] == '2026-11-23T18:00:00Z'
+        assert all(p.read_bytes() == content for p, content in frozen.items())
+        assert json.loads(sidecar.read_text())['sources'] == first['qa'][0]['sources']
+
+
+@pytest.mark.parametrize('record', [None, {'api_season': 2025, 'retrieved_utc': 'wrong'},
+                                   {'api_season': 2025, 'retrieved_utc': '2026-11-23T18:00:00Z',
+                                    'sources': {'team_data': {'sha256': 'bad'}}}])
+def test_missing_or_mismatched_baseline_provenance_blocks(tmp_path, record):
+    from wcbb_espn.refresh import baseline_qa
+    td, fp = synthetic()
+    frames = build_frames(td, fp, small_cohort(), 2025, '2026-11-23T18:00:00Z')
+    if record is not None:
+        sidecar = tmp_path / 'data/frozen/season=2025/provenance.json'
+        sidecar.parent.mkdir(parents=True)
+        sidecar.write_text(json.dumps(record))
+    with pytest.raises(PipelineValidationError, match='baseline provenance'):
+        baseline_qa(tmp_path, frames, small_cohort())

@@ -1,18 +1,3 @@
-# Validation Summary: Project Title
+# Legacy validator report
 
-- Run at: 2026-05-23T18:27:46.100157+00:00
-- Status: warning
-
-## Files Checked
-
-| File | Status | Rows | Columns | Duplicate Rows |
-|---|---|---:|---:|---:|
-| data/processed/example.csv | missing | 0 | 0 | 0 |
-
-## Warnings
-
-- data/processed/example.csv is missing
-
-## Errors
-
-- None
+The inherited `scripts/validate_data.py` checks configured evidence files; it does not certify the ESPN refresh. Use [`manifest_latest.json`](manifest_latest.json) for current ingestion QA and [`docs/validation_report.md`](../docs/validation_report.md) for the first successful run. This file remains for compatibility with the repository helpers.
