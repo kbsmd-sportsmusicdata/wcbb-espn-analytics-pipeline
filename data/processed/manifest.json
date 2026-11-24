@@ -49,10 +49,10 @@
       "Unknown": 4
     },
     "minutes_sample_tier": {
-      "Small": 472,
+      "Small": 470,
       "Established": 296,
       "Very small": 188,
-      "Developing": 157
+      "Developing": 159
     },
     "games_sample_tier": {
       "Small": 561,
@@ -61,16 +61,16 @@
       "Very small": 38
     },
     "playing_time_tier": {
-      "Regular rotation": 401,
-      "Limited rotation": 337,
-      "Rotation anchor": 201,
+      "Regular rotation": 402,
+      "Limited rotation": 335,
+      "Rotation anchor": 202,
       "Minimal": 174
     },
     "creation_context": {
-      "Mixed": 427,
+      "Mixed": 430,
       "Mostly assisted": 312,
       "Unknown": 223,
-      "More self-created": 151
+      "More self-created": 148
     },
     "impact_balance": {
       "Offensive-leaning": 399,
@@ -105,7 +105,7 @@
   "unknown_skill_count": 0,
   "full_source_percentiles": "Preserved unchanged; original raw skill-impact ranks, not recalculated on cohort or per-100 rates",
   "unresolved_issues": "Source name variants require review; small samples and invalid fractions remain labeled, never imputed.",
-  "source_run_id": "20261123T235117Z",
+  "source_run_id": "20261124T013238Z",
   "source_qa": [
     {
       "api_season": 2025,
@@ -154,16 +154,16 @@
       "sources": {
         "team_data": {
           "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2026",
-          "sha256": "bf6f57119722addb77c33ec45e2895deac98e63d54a2e0e307b49d9bdfc9dfd9",
-          "bytes": 3462536
+          "sha256": "f3475c3ec4231eec2965333371dc8cabd6bb29fc10683b1613cf4288efc4dd89",
+          "bytes": 3463482
         },
         "fingerprint_data": {
           "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2026",
-          "sha256": "1021876edd53566da8e02ee150703d28557f6beaa3bc04e9e991390fed318204",
-          "bytes": 16627166
+          "sha256": "e7bbf39890fd8c501015aeb487e2cdc867239105f28c54517f913ea10ede244b",
+          "bytes": 16626753
         }
       },
-      "retrieved_utc": "2026-11-23T23:51:16Z",
+      "retrieved_utc": "2026-11-24T01:32:37Z",
       "player_identity_changes": {
         "added": [],
         "removed": []
@@ -175,15 +175,15 @@
     "skill_taxonomy_v1.csv": "4477033c89b9a93b38a1964f241269c53f4f14d72814d45b7ee274aee16d5084"
   },
   "output_sha256": {
-    "player_skill_features.csv": "421331a9ef054af487b76e9fcff3eb486da2f8492c1ad36b59fc951e9a0ec162",
-    "player_skill_features.parquet": "8088593bcda7d4499681374e16b490d45169b616bac2249433f470a053a66639",
-    "player_features.parquet": "5a2f4acf81026888220d9595e27eed23c7ad1d6d90df45e25346b1438771857d",
-    "player_features.duckdb": "a7e43e8f72175a1a774cf67627dd107823bd3bd4c0ea0ed29efb98af7c3d3395",
-    "player_features.csv": "a188be4f2431f0ca878879c5a13f7dabd79308c9aed98d58414fb9c5c8afcb56",
-    "season=2026/player_skill_features.csv": "55f93373e5b30c372b9ce6c0495d84730d5f35e4f637a4bc656aaf213686d8c4",
-    "season=2026/player_skill_features.parquet": "afb1d403cf56769a07c42c6aaec040462445eda8d72ee4c230be134ce99d65f5",
-    "season=2026/player_features.parquet": "4d61c48db44010a1e602f7529ce15c28dfdb31d8aa1691d764548b0ac8487ef7",
-    "season=2026/player_features.csv": "4866d448150c2bf14949d4f09e0e83108b544b21379e214f6e76d4bddb0068fe",
+    "player_skill_features.csv": "05334b39983eb1acf1539cf102b4c004fc8e3eb89081c555e16bea3bd9305924",
+    "player_skill_features.parquet": "4c2f1493be5bcc9f8af6ce21bc650f8bebf4e16ebb4b537ccc1d9381a3c6ee31",
+    "player_features.parquet": "c2f6f02eba97ff6293dc5f71564da6ef4c3ac84425afbad755061a03478a5b7e",
+    "player_features.duckdb": "7bc691b8c2c1d6aa9edc4f656f454548b9701524568c2ba055a405fb7439f80d",
+    "player_features.csv": "986e71d3ea86ee403cdee6db90bdae0304ba0a2a15fa1b8059708e6dd23cb0cf",
+    "season=2026/player_skill_features.csv": "083c6f12d961a24b2725ac815c9438f176f85f1e4a89ac06fb19906477da06c6",
+    "season=2026/player_skill_features.parquet": "6d4c71b68313e13a97415dabdaecad944d29f67526978eb2f26f91023df200a7",
+    "season=2026/player_features.parquet": "0acbc060ba1d11ca5890a11b5c408f4e781466418816f89eff85a28eb45b5886",
+    "season=2026/player_features.csv": "3d51a4092b198ad4167d1220bfc3fb426b1d2d4c8949ae25b6f58c1b53253ab9",
     "season=2025/player_skill_features.csv": "708ac9870592d400e99c4a33d3c5ab61d1bd3245d6aa73142a70f9cb897f304e",
     "season=2025/player_skill_features.parquet": "84e1445d419b84ae2791ee40023da832761f694bb8157e948a87bed62ff1ec4e",
     "season=2025/player_features.parquet": "4194048fbbdd6d3d08aae8a82207d1a4e3770c6f8f1ad6f9da9a75be03a20350",

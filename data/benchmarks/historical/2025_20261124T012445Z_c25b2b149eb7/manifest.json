@@ -1,0 +1,30 @@
+{
+  "api_season": 2025,
+  "retrieved_utc": "2026-11-24T01:24:45Z",
+  "sources": {
+    "team_data": {
+      "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2025",
+      "sha256": "c25b2b149eb709d17d5608acd6031bc5a4cb6a8e6b46e2f426bec7752206a35d",
+      "bytes": 3134931
+    },
+    "fingerprint_data": {
+      "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2025",
+      "sha256": "a04efd802df947fb1cf3643dc62d6dd62bb7cd7d85234b0cd78c40ec06ac495c",
+      "bytes": 14497692
+    }
+  },
+  "input_vintage": "Historical re-extraction",
+  "reference_id": "2025_20261124T012445Z_c25b2b149eb7",
+  "player_rows": 4677,
+  "skill_rows": 98217,
+  "fingerprint_coverage": 1.0,
+  "population": "Full ESPN WCBB provider player feed; not independently verified NCAA roster coverage",
+  "file_sha256": {
+    "players.parquet": "1d13aa377aeb1a346f823d9b3036687718c317df07ef6f49aff5ad7d032f7d23",
+    "skills.parquet": "47c197d677909ace6d24f362094fc394f216127d24dd11684dc761ad1256bf7a"
+  },
+  "phase1_rule_sha256": {
+    "player_feature_rules_v1.json": "f0e476d313e43ebcbc4eb6a44a5732a0e50def93149f2ebb1c66368dea1d7719",
+    "skill_taxonomy_v1.csv": "4477033c89b9a93b38a1964f241269c53f4f14d72814d45b7ee274aee16d5084"
+  }
+}

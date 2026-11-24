@@ -26,3 +26,13 @@ for name,digest in features['output_sha256'].items():
 assert (processed/'player_features.parquet').is_file()
 assert (processed/'player_skill_features.parquet').is_file()
 print('Processed player/skill outputs match the validated source run and file hashes')
+# Independently validate Phase 2 files and source/rule linkage.
+peers=processed/'phase2'
+peer=json.loads((peers/'manifest.json').read_text())
+assert peer['source_run_id']==s['run_id']
+assert peer['status'] in ('PASS','PASS_WITH_REVIEW')
+assert s['peer_benchmarks']['source_run_id']==s['run_id']
+assert hashlib.sha256((ROOT/'data/reference/peer_benchmark_rules_v1.json').read_bytes()).hexdigest()==peer['config_sha256']
+for name,digest in peer['output_sha256'].items():
+    assert hashlib.sha256((peers/name).read_bytes()).hexdigest()==digest,name
+print('Full-source Phase 2 outputs match the source run, configuration and file hashes')

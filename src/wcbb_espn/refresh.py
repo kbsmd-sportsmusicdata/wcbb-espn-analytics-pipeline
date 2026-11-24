@@ -298,9 +298,12 @@ def refresh_repository(root:Path,current_season:int=2026) -> dict:
         if feature_qa['status'] == 'PASS_WITH_REVIEW':
             manifest['status'] = 'PASS_WITH_REVIEW'
         manifest['processed_snapshot_path'] = f'data/processed/snapshots/{run_id}'
+        from .peers import prepare_peer_bundle
+        manifest['peer_benchmarks'] = prepare_peer_bundle(root, stage, manifest)
         from .publication import publication_transaction
         targets = [root/'reports/manifest_latest.json', root/manifest['snapshot_path']/'manifest.json']
-        mappings = [(stage/'processed', root/'data/processed'),
+        mappings = [(stage/'benchmark_publication', root/'data/benchmarks'),
+                    (stage/'processed', root/'data/processed'),
                     (stage/'processed', root/manifest['processed_snapshot_path']),
                     (stage/'latest', root/'data/latest'),
                     (stage/f'season={current_season}', root/f'data/latest/season={current_season}'),
@@ -317,6 +320,8 @@ def refresh_repository(root:Path,current_season:int=2026) -> dict:
                 shutil.copytree(stage/"frozen/season=2025",frozen_folder,dirs_exist_ok=False)
             elif not (frozen_folder / 'provenance.json').exists():
                 shutil.copy2(provenance, frozen_folder / 'provenance.json')
+            for child in (stage/'benchmark_publication').iterdir():
+                shutil.copytree(child, root/'data/benchmarks'/child.name, dirs_exist_ok=True)
             processed = root/'data/processed'
             processed.mkdir(parents=True, exist_ok=True)
             shutil.copytree(stage/'processed', root/manifest['processed_snapshot_path'])

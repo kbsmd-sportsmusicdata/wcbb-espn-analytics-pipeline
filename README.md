@@ -59,3 +59,13 @@ All original source columns remain intact. New per-100 rates normalize accumulat
 See the [20-feature dictionary](docs/player_feature_dictionary.md), [QA summary](docs/player_feature_qa_summary.md), [thresholds](data/reference/player_feature_rules_v1.json), [skill taxonomy](data/reference/skill_taxonomy_v1.csv), and [DuckDB queries](sql/player_feature_examples.sql). The existing Tuesday/Friday refresh stages features after source QA and publishes only after critical feature QA passes. The combined manifest records review flags as PASS_WITH_REVIEW.
 
 For a one-time backfill from already validated local source tables, use `python scripts/build_player_features.py`; the normal refresh performs this step automatically. No additional schedule is required.
+
+## Phase 2 full-source peer benchmarks
+
+The three linked outputs under `data/processed/phase2/` are `player_peer_features`, `player_skill_peer_features` and `peer_benchmark_reference`, each as Parquet and CSV. `peer_features.duckdb` contains all three tables. The 45 teams remain the output selection; the benchmark universe is the full ESPN WCBB provider player feed.
+
+Position percentiles, position-specific usage bands, role comparisons and skill-component percentiles carry exact valid sample sizes and suppression reasons. Historical eligibility uses >=10 games/200 observed minutes/400 possessions. Current eligibility uses >=5/100/200 and is explicitly provisional. Groups below 30 valid players and constant distributions are unavailable; positions are never silently pooled. High usage, turnover or assisted-rate percentiles do not mean better player quality.
+
+Historical benchmark inputs are a separately retrieved, versioned full-source extraction with independent hashes/timestamps, not the original frozen cohort snapshot. Current benchmarks use the exact ingestion response bytes. All original ESPN and Phase 1 columns remain unchanged. Function tags identify positive modeled, >=75th-percentile film-review candidates; they are not confirmed strengths or composite rankings.
+
+See the [Phase 2 dictionary and interpretation](docs/peer_feature_dictionary.md), [benchmark configuration](data/reference/peer_benchmark_rules_v1.json), [QA report](docs/peer_benchmark_qa_summary.md), and [four example DuckDB queries](sql/peer_benchmark_examples.sql). The same Tuesday/Friday workflow performs Phase 2 in staging and includes it in the existing publication rollback safeguards. No additional schedule or notebook session is needed.

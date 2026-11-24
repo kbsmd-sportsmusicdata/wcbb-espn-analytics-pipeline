@@ -1,0 +1,7 @@
+api_season,position_group,DISPLAY_NAME,player_id,position_benchmark_status,position_benchmark_n,efg_position_pctile,efg_position_n,usage_role_band,role_peer_n,role_benchmark_status
+2025,Center,Sakima Walker,4433745,Available,143,82.51748251748252,143,Higher usage,47,Available
+2025,Forward,Angela Dugalic,4433411,Available,945,87.3015873015873,945,Typical usage,321,Available
+2025,Guard,Alli Campbell,4433419,Available,2054,13.68062317429406,2054,Lower usage,677,Available
+2026,Center,Clara Strack,5174442,Provisional,59,69.49152542372882,59,Higher usage,20,Insufficient peers
+2026,Forward,Sa'Myah Smith,4565520,Provisional,482,96.99170124481327,482,Typical usage,164,Provisional
+2026,Guard,KK Bransford,4565508,Provisional,1265,71.14624505928853,1265,Higher usage,418,Provisional

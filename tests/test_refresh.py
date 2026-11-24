@@ -123,6 +123,11 @@ def test_refresh_recovers_and_retains_frozen_source_provenance(tmp_path, monkeyp
         } for name, route in [('team_data', 'team-data'), ('fingerprint_data', 'fingerprint-data')]})
         return frames, qa
 
+    import wcbb_espn.peers as peers
+    def peer_stub(root,stage,manifest):
+        (stage/'benchmark_publication').mkdir()
+        return {'status':'PASS'}
+    monkeypatch.setattr(peers, 'prepare_peer_bundle', peer_stub)
     monkeypatch.setattr(refresh, 'load_cohort', lambda path: cohort)
     monkeypatch.setattr(refresh, 'fetch_one_season', fetch)
     monkeypatch.setattr(refresh, 'datetime', Clock)
@@ -174,6 +179,15 @@ def test_refresh_recovers_and_retains_frozen_source_provenance(tmp_path, monkeyp
     assert all(p.read_bytes() == content for p,content in previous.items())
     assert {p for folder in ['data/latest','data/frozen','data/processed','reports']
             for p in (tmp_path/folder).rglob('*') if p.is_file()} == set(previous)
+
+
+    def phase2_failure(*args):
+        raise PipelineValidationError('critical Phase 2 benchmark QA')
+    monkeypatch.setattr(peers, 'prepare_peer_bundle', phase2_failure)
+    clock[0] = clock[0].replace(second=5)
+    with pytest.raises(PipelineValidationError, match='Phase 2 benchmark QA'):
+        refresh.refresh_repository(tmp_path)
+    assert all(p.read_bytes() == content for p,content in previous.items())
 
 
 @pytest.mark.parametrize('record', [None, {'api_season': 2025, 'retrieved_utc': 'wrong'},

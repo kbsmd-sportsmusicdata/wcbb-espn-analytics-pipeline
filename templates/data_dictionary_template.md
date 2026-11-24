@@ -41,3 +41,7 @@ The manifest adds run ID, status, row counts, source hashes/byte counts, player-
 ## Processed feature layer
 
 See [Phase 1 feature dictionary](player_feature_dictionary.md) for all added fields, exact formulas, units, inputs, null rules, populations and provenance. Source-normalized fields above are unchanged.
+
+## Phase 2 peer benchmarks
+
+The [Phase 2 dictionary](peer_feature_dictionary.md) documents position/role/skill percentiles, metric-specific denominators, source vintages, suppression states and model-based function candidates. The comparison universe is the full provider feed, while outputs remain the selected 45 teams.
