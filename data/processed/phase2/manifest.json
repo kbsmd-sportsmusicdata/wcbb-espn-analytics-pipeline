@@ -7,7 +7,7 @@
   "population": "Full ESPN WCBB provider player feed; not independently verified NCAA roster coverage",
   "source_population_rows": {
     "2025": 4677,
-    "2026": 5590
+    "2026": 5599
   },
   "eligible_source_positions": {
     "2025": {
@@ -16,22 +16,22 @@
       "Center": 143
     },
     "2026": {
-      "Guard": 1265,
-      "Forward": 482,
-      "Center": 59
+      "Guard": 1334,
+      "Forward": 517,
+      "Center": 63
     }
   },
   "position_status_counts": {
-    "Ineligible exposure or identity": 458,
+    "Ineligible exposure or identity": 451,
     "Available": 398,
-    "Provisional": 253,
+    "Provisional": 260,
     "Unknown position": 4
   },
   "role_status_counts": {
-    "Role unavailable": 463,
+    "Role unavailable": 456,
     "Available": 397,
-    "Provisional": 245,
-    "Insufficient peers": 8
+    "Provisional": 251,
+    "Insufficient peers": 9
   },
   "reference_status_counts": {
     "Insufficient peers": 352,
@@ -41,31 +41,31 @@
     "Constant distribution": 90
   },
   "player_missing_percentiles": {
-    "usage_position_pctile": 463,
-    "efg_position_pctile": 462,
-    "efg_role_pctile": 471,
-    "ast40_position_pctile": 462,
-    "ast40_role_pctile": 471,
-    "reb40_position_pctile": 462,
-    "ftr_position_pctile": 462,
-    "tov_position_pctile": 462,
-    "tov_role_pctile": 471,
-    "assisted_rate_position_pctile": 462,
-    "fingerprint_off_per100_position_pctile": 462,
-    "fingerprint_def_per100_position_pctile": 462,
-    "fingerprint_total_per100_position_pctile": 462,
-    "fingerprint_total_per100_role_pctile": 471
+    "usage_position_pctile": 456,
+    "efg_position_pctile": 455,
+    "efg_role_pctile": 465,
+    "ast40_position_pctile": 455,
+    "ast40_role_pctile": 465,
+    "reb40_position_pctile": 455,
+    "ftr_position_pctile": 455,
+    "tov_position_pctile": 455,
+    "tov_role_pctile": 465,
+    "assisted_rate_position_pctile": 455,
+    "fingerprint_off_per100_position_pctile": 455,
+    "fingerprint_def_per100_position_pctile": 455,
+    "fingerprint_total_per100_position_pctile": 455,
+    "fingerprint_total_per100_role_pctile": 465
   },
   "skill_status_counts": {
-    "Ineligible exposure or identity": 9618,
+    "Ineligible exposure or identity": 9471,
     "Available": 6368,
-    "Provisional": 4048,
-    "Constant distribution": 3255,
+    "Provisional": 4160,
+    "Constant distribution": 3290,
     "Unknown position": 84
   },
   "functional_status_counts": {
-    "Model-based candidate; film review required": 632,
-    "Ineligible or source vintage mismatch": 462,
+    "Model-based candidate; film review required": 639,
+    "Ineligible or source vintage mismatch": 455,
     "No qualifying candidate": 19
   },
   "identity_review_observations": 18,
@@ -102,23 +102,23 @@
     },
     "2026": {
       "api_season": 2026,
-      "retrieved_utc": "2026-11-24T01:32:37Z",
+      "retrieved_utc": "2026-11-25T01:25:08Z",
       "sources": {
         "team_data": {
           "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2026",
-          "sha256": "f3475c3ec4231eec2965333371dc8cabd6bb29fc10683b1613cf4288efc4dd89",
-          "bytes": 3463482
+          "sha256": "bbd30d66d4883a45ac244d212e6ff230143c5a87c81e74f1433745b66694a2a5",
+          "bytes": 3478661
         },
         "fingerprint_data": {
           "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2026",
-          "sha256": "e7bbf39890fd8c501015aeb487e2cdc867239105f28c54517f913ea10ede244b",
-          "bytes": 16626753
+          "sha256": "9d934b452afa6ff6bf3b68c82e438a160cb700e4750135b944fbede8c37ff92e",
+          "bytes": 16672798
         }
       },
       "input_vintage": "Current ingestion response",
-      "reference_id": "2026_20261124T013237Z_f3475c3ec423",
-      "player_rows": 5590,
-      "skill_rows": 117390,
+      "reference_id": "2026_20261125T012508Z_bbd30d66d488",
+      "player_rows": 5599,
+      "skill_rows": 117579,
       "fingerprint_coverage": 1.0,
       "population": "Full ESPN WCBB provider player feed; not independently verified NCAA roster coverage",
       "phase1_rule_sha256": {
@@ -126,8 +126,8 @@
         "skill_taxonomy_v1.csv": "4477033c89b9a93b38a1964f241269c53f4f14d72814d45b7ee274aee16d5084"
       },
       "file_sha256": {
-        "players.parquet": "17032b26999473a8a81e0b57d0054daf9561508e74f427617a8bbc164aaaf7df",
-        "skills.parquet": "347e05709f3b9b76436e027e69551ca6b0d0ba6a1d182a00ba3d54effbf86eba"
+        "skills.parquet": "a57d01a293f28f6f20113084a729f68d0a0b7445ee0eda7aa559a6d7ca1ae073",
+        "players.parquet": "c4d03b06a278ec1ae030bab7764ec871badb40b8b9b9def6d529fced5c9ee8e8"
       }
     }
   },
@@ -150,43 +150,43 @@
       "note": "Exclusion reason counts overlap; valid metric-specific counts are in the reference table."
     },
     "2026": {
-      "total_players": 5590,
-      "eligible_players": 1806,
+      "total_players": 5599,
+      "eligible_players": 1914,
       "identity_review": 200,
       "unknown_position": 82,
-      "below_or_missing_games": 2313,
-      "below_or_missing_minutes": 3411,
-      "below_or_missing_possessions": 3680,
+      "below_or_missing_games": 2200,
+      "below_or_missing_minutes": 3332,
+      "below_or_missing_possessions": 3588,
       "exposure_reconciliation_review": 0,
       "note": "Exclusion reason counts overlap; valid metric-specific counts are in the reference table."
     }
   },
   "function_candidate_breadth": {
-    "eligible_selected_players": 651,
-    "selected_players_with_candidates": 632,
+    "eligible_selected_players": 658,
+    "selected_players_with_candidates": 639,
     "interpretation": "Many parallel skill comparisons produce broad candidate coverage. Tags are descriptive film-review leads, not rarity or statistical significance claims."
   },
-  "source_run_id": "20261124T013238Z",
+  "source_run_id": "20261125T012509Z",
   "config_sha256": "93ad75a2609b2cb0ed90e7578f28ebe6e6b39ccfb0dcdef2cdf800650c0b8d6a",
   "output_sha256": {
-    "peer_benchmark_reference.parquet": "e410a746ed7846c4e82d801485438edf4336c5235a00018d93123db1f2198494",
-    "peer_benchmark_reference.csv": "f56ce089e65f599a2d75068f63d5646a699559727d1f21d81ccd920b2cc9a9c6",
-    "player_skill_peer_features.csv": "d65622fc524381ae417d8d627c9d4a0872ef04316dc799da67a2d733af72f252",
-    "player_skill_peer_features.parquet": "255bd5df4f4c10b541f6786f957a2ce538f00e004eb8c5391a9802ffca801a7f",
-    "peer_features.duckdb": "5f16e67fbc8fe04bb85abae6561a621437c9151f9141be34c7f33cfa46661119",
-    "player_peer_features.csv": "a637d4a00a79acfc29654258fd2d5edae2af646cac8c50109eca33f3b3c163a1",
-    "player_peer_features.parquet": "36f00b716d66466cbb90668993fa909706fa17c338f36bc6a0177f870e712fb1",
-    "season=2026/peer_benchmark_reference.parquet": "db81cf3ed47d18da1922a544326679577da4655bca421f8754aab1af58407c4f",
-    "season=2026/peer_benchmark_reference.csv": "627881cd0806f38978568e68640029219dae999a53b2e2ce119175f0135c1fb4",
-    "season=2026/player_skill_peer_features.csv": "e012bbd5a27d7adec86343807492319ec1638c31475ace59a7ecf8c1e92e43d3",
-    "season=2026/player_skill_peer_features.parquet": "bafd94335ba896688cd3a2f9a5e0f36a7626c2fbae6db91c2696144afb37bbda",
-    "season=2026/player_peer_features.csv": "c8dbbec9b8bf0e74bb1daac9554de60ed71898fea206312369fca3a36837aa5d",
-    "season=2026/player_peer_features.parquet": "434dc7eb2460a73109f4de75b70efe764b99615bc5a11203dd654fc049adba91",
-    "season=2025/peer_benchmark_reference.parquet": "16abae37e4bcd537ca5b8aa373ed61bf680a07cf9cdfe149f5b63a66c25adb01",
-    "season=2025/peer_benchmark_reference.csv": "493376b88259a5bd002ea3b35e8bde01b275cec284d53c926464a95bcdfed27b",
-    "season=2025/player_skill_peer_features.csv": "637452a51fce8503c6c5773d828acb79d877a7a7c61d0eb3e0a3fa6fd33e10ae",
-    "season=2025/player_skill_peer_features.parquet": "6206759ee11da16e0d6a7f3866ad8e910d25ed2bb5088f6e82404a83b1733be9",
+    "peer_features.duckdb": "45c10669bfafac4a477b0a2fb3962516c5fb3d7999fa312d30eafd1f91859a0e",
+    "player_peer_features.csv": "61c473352f457020285a070a4da87598da03630801b11a0f6f46d381ad476201",
+    "player_skill_peer_features.parquet": "9dea501c6d25a2b382b5acaa4bd36d7b0714c72b44146c811a786d68e684eb4c",
+    "peer_benchmark_reference.csv": "dcc674f87241ee67b8cf9ceeec1a4ca069816bdaa52e275fb4fd62d972c8139d",
+    "peer_benchmark_reference.parquet": "842f10d3b6115a42f75f7f7628e7ea4e79fb8b38c0267390ec4c5c4acd6e954f",
+    "player_skill_peer_features.csv": "de9bf7511783bdc61179776e4a445e41495afa361cb4e22529c0d4995cc12dd4",
+    "player_peer_features.parquet": "2ff43697e45b503ba53856416e2c4a49989c7754d846becf3abcf86760917374",
     "season=2025/player_peer_features.csv": "a98618059863427d6611331dd7cc93ffd1455aa8c65cb29e20e44e42d84eeb12",
-    "season=2025/player_peer_features.parquet": "8d550ae1ea781c32c7181a44616c37c41ee89ba983e8b3f2a817bd95bdbe06ba"
+    "season=2025/player_skill_peer_features.parquet": "6206759ee11da16e0d6a7f3866ad8e910d25ed2bb5088f6e82404a83b1733be9",
+    "season=2025/peer_benchmark_reference.csv": "4524335143970bdf68ab8cd19ec513cf2e79373b4060523938518a6c69bc473a",
+    "season=2025/peer_benchmark_reference.parquet": "359195aa44930a0bd8e1dd2f6de47f2b0fb46125a78a060eea2cab2e95075497",
+    "season=2025/player_skill_peer_features.csv": "637452a51fce8503c6c5773d828acb79d877a7a7c61d0eb3e0a3fa6fd33e10ae",
+    "season=2025/player_peer_features.parquet": "8d550ae1ea781c32c7181a44616c37c41ee89ba983e8b3f2a817bd95bdbe06ba",
+    "season=2026/player_peer_features.csv": "57ba0285f6ad1bc3e324cb4db700a135b432578f74a242ba2f420b5a16a51543",
+    "season=2026/player_skill_peer_features.parquet": "c2a78523c5313672876bc669fd26a8f97bdfba2b7b32827e98d01fb417b89bfb",
+    "season=2026/peer_benchmark_reference.csv": "a6370fdcfb8eac3a57836c27a6a5e23a5ca43f05f4d664b6e695b30f26b0a59c",
+    "season=2026/peer_benchmark_reference.parquet": "d1bbb051767be5c17db8782271ed88f910ae6f36cc5542817af8d6c7a736ea77",
+    "season=2026/player_skill_peer_features.csv": "f34315874654f054ec927bc8af8f7d206b3afa04fa2c0c6da5a5c4ed7fc74911",
+    "season=2026/player_peer_features.parquet": "515bb2ef3d8ccce89bcbff775382d72363d2bb4fc15d34ac1557cc6247e47504"
   }
 }

@@ -1,0 +1,30 @@
+{
+  "api_season": 2026,
+  "retrieved_utc": "2026-11-25T01:25:08Z",
+  "sources": {
+    "team_data": {
+      "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2026",
+      "sha256": "bbd30d66d4883a45ac244d212e6ff230143c5a87c81e74f1433745b66694a2a5",
+      "bytes": 3478661
+    },
+    "fingerprint_data": {
+      "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2026",
+      "sha256": "9d934b452afa6ff6bf3b68c82e438a160cb700e4750135b944fbede8c37ff92e",
+      "bytes": 16672798
+    }
+  },
+  "input_vintage": "Current ingestion response",
+  "reference_id": "2026_20261125T012508Z_bbd30d66d488",
+  "player_rows": 5599,
+  "skill_rows": 117579,
+  "fingerprint_coverage": 1.0,
+  "population": "Full ESPN WCBB provider player feed; not independently verified NCAA roster coverage",
+  "phase1_rule_sha256": {
+    "player_feature_rules_v1.json": "f0e476d313e43ebcbc4eb6a44a5732a0e50def93149f2ebb1c66368dea1d7719",
+    "skill_taxonomy_v1.csv": "4477033c89b9a93b38a1964f241269c53f4f14d72814d45b7ee274aee16d5084"
+  },
+  "file_sha256": {
+    "skills.parquet": "a57d01a293f28f6f20113084a729f68d0a0b7445ee0eda7aa559a6d7ca1ae073",
+    "players.parquet": "c4d03b06a278ec1ae030bab7764ec871badb40b8b9b9def6d529fced5c9ee8e8"
+  }
+}
