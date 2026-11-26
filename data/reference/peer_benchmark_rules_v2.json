@@ -1,0 +1,179 @@
+{
+  "version": "phase2_v2_d1",
+  "population": "ESPN WCBB Division I-competing teams matched to season-specific supplied SDV membership plus documented official exceptions; not independently certified NCAA roster completeness",
+  "minimum_peer_n": 30,
+  "minimum_full_source_players": 1000,
+  "minimum_fingerprint_coverage": 0.99,
+  "position_groups": [
+    "Guard",
+    "Wing",
+    "Forward",
+    "Center",
+    "Hybrid",
+    "Unknown"
+  ],
+  "excluded_positions": [
+    "Unknown"
+  ],
+  "eligibility": {
+    "2025": {
+      "games": 10,
+      "minutes": 200,
+      "possessions": 400
+    },
+    "2026": {
+      "games": 5,
+      "minutes": 100,
+      "possessions": 200
+    }
+  },
+  "usage_quantiles": [
+    0.33,
+    0.67
+  ],
+  "reference_quantiles": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "strength_percentile": 75,
+  "quantile_method": "linear",
+  "percentile_method": "100 * average rank / n among exact eligible reference members; ties averaged; no ranking of ineligible or vintage-mismatched observations",
+  "metrics": {
+    "usage": {
+      "column": "usage_pct",
+      "unit": "Percentage",
+      "min": 0,
+      "max": 100,
+      "direction": "Context only; higher is not better"
+    },
+    "efg": {
+      "column": "EFG",
+      "unit": "Effective FG percentage, native scale 0-150",
+      "min": 0,
+      "max": 150,
+      "direction": "Higher efficiency; descriptive, shot-context dependent"
+    },
+    "ast40": {
+      "column": "AST_40",
+      "unit": "Provider AST_40; per-40 label, denominator not independently verified",
+      "min": 0,
+      "max": null,
+      "direction": "Statistical comparison only; confirm source rate definition"
+    },
+    "reb40": {
+      "column": "REB_40",
+      "unit": "Provider REB_40; per-40 label, denominator not independently verified",
+      "min": 0,
+      "max": null,
+      "direction": "Statistical comparison only; confirm source rate definition"
+    },
+    "ftr": {
+      "column": "FTR",
+      "unit": "Native free-throw ratio; not percentage",
+      "min": 0,
+      "max": null,
+      "direction": "Context dependent; higher is not universally better"
+    },
+    "tov": {
+      "column": "turnover_pct_display",
+      "unit": "Percentage",
+      "min": 0,
+      "max": 100,
+      "direction": "Higher percentile means more turnovers; lower may be favorable"
+    },
+    "assisted_rate": {
+      "column": "assisted_rate_pct",
+      "unit": "Percentage",
+      "min": 0,
+      "max": 100,
+      "direction": "Creation context only; higher is not better"
+    },
+    "fingerprint_off_per100": {
+      "column": "fingerprint_impact_off_per100",
+      "unit": "Independent contribution per 100 source possessions",
+      "min": null,
+      "max": null,
+      "direction": "Higher modeled contribution; requires film validation"
+    },
+    "fingerprint_def_per100": {
+      "column": "fingerprint_impact_def_per100",
+      "unit": "Independent contribution per 100 source possessions",
+      "min": null,
+      "max": null,
+      "direction": "Higher modeled contribution; requires film validation"
+    },
+    "fingerprint_total_per100": {
+      "column": "fingerprint_impact_total_per100",
+      "unit": "Independent contribution per 100 source possessions",
+      "min": null,
+      "max": null,
+      "direction": "Higher modeled contribution; no composite added"
+    }
+  },
+  "role_metrics": [
+    "efg",
+    "ast40",
+    "tov",
+    "fingerprint_total_per100"
+  ],
+  "strength_components": {
+    "3ptShooting": {
+      "component": "off",
+      "tag": "Shooting / spacing"
+    },
+    "corner": {
+      "component": "off",
+      "tag": "Shooting / spacing"
+    },
+    "rim": {
+      "component": "off",
+      "tag": "Finishing"
+    },
+    "layup": {
+      "component": "off",
+      "tag": "Finishing"
+    },
+    "assist": {
+      "component": "off",
+      "tag": "Creation / playmaking"
+    },
+    "rebound": {
+      "component": "total",
+      "tag": "Rebounding / second chance"
+    },
+    "putback": {
+      "component": "off",
+      "tag": "Rebounding / second chance"
+    },
+    "badpass": {
+      "component": "off",
+      "tag": "Possession management"
+    },
+    "turnover": {
+      "component": "def",
+      "tag": "Defensive activity"
+    },
+    "fastbreak": {
+      "component": "off",
+      "tag": "Transition"
+    }
+  },
+  "strength_interpretation": "Positive source Net Points contributions and >=75th relative percentile are model-based film-review candidates, not independently verified basketball strengths. Other high percentiles are statistical distinctions only. No overlapping skills are summed.",
+  "historical_policy": "Separate versioned full-source re-extraction; suppress cohort metrics if metric, identity, position or exposure differs from this reference vintage. Never replace frozen baseline.",
+  "membership_policy": {
+    "expected_team_count": {
+      "2025": 363,
+      "2026": 363
+    },
+    "season_conversion": "SDV season = ESPN Analytics api_season + 1",
+    "include_reclassifying_competing_d1": true,
+    "unknown_membership": "Exclude from D1 universe; do not assign D2 or D3 without evidence",
+    "crosswalk_parquet_sha256": {
+      "2025": "e1726ef28478b0312c24131876a7666fc2317bf044ba78c76ae1ad8e35ec9191",
+      "2026": "e3ff23939cfb1a75613aade2cd6c92ded51a87517c0e1ce63c90aa8813e86f37"
+    }
+  }
+}

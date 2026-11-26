@@ -300,6 +300,8 @@ def refresh_repository(root:Path,current_season:int=2026) -> dict:
         manifest['processed_snapshot_path'] = f'data/processed/snapshots/{run_id}'
         from .peers import prepare_peer_bundle
         manifest['peer_benchmarks'] = prepare_peer_bundle(root, stage, manifest)
+        from .d1 import prepare_d1_bundle
+        manifest['d1_peer_benchmarks'] = prepare_d1_bundle(root, stage, manifest)
         from .catalog import write_catalog
         manifest['dataset_catalog'] = write_catalog([
             (stage/'benchmark_publication/latest', 'data/benchmarks/latest'),
