@@ -37,3 +37,20 @@ CSV counterparts and `peer_features.duckdb` contain the same three tables. Per-s
 - **Ready for descriptive scouting:** source/Phase 1 metrics, exact counts, position/role membership, available historical statistical percentiles and the provenance-rich reference table, subject to visible metric cautions.
 - **Exploratory:** current provisional percentiles, usage-based responsibility bands, AST_40/REB_40 source-label comparisons and overlapping model-based function candidates.
 - **Requires independent game or film validation:** actual defensive assignments, shooting portability, decision-making, role fulfillment, NCAA roster status, opponent context and WNBA fit. No breakout, transfer-change or draft projection is claimed.
+
+## Full-population discovery outputs and stable inputs
+
+The existing Phase 2 cohort outputs and benchmark rules are unchanged. Stable input aliases are byte-identical to the versioned sources:
+
+- `data/benchmarks/latest/season=2025/players.parquet` and `skills.parquet`
+- `data/benchmarks/latest/season=2026/players.parquet` and `skills.parquet`
+- `data/benchmarks/latest/manifest.json`: source run, vintage, counts, reference IDs and input hashes.
+
+Full-population Phase 2 peer outputs are published as Parquet only to avoid large CSV duplication:
+
+- `data/processed/phase2/full_population/season=2025/player_peer_features.parquet` and `player_skill_peer_features.parquet`
+- `data/processed/phase2/full_population/season=2026/player_peer_features.parquet` and `player_skill_peer_features.parquet`
+
+They use the same position/role/skill distributions, cutoffs, eligibility, metric-specific denominators, tie rules and candidate tags as the selected 45-team outputs. All reference observations are retained, including ineligible ones with suppressed comparisons. `in_cohort_45` is a boolean for membership of the source team ID in the fixed cohort; `peer_output_population` identifies the provider-wide output, and `peer_source_run_id` identifies the publishing run. Historical full-population rows reflect the separately versioned historical extraction, not the frozen selected-cohort source. Current comparisons remain provisional. Provider-wide coverage is not independently certified NCAA Division I coverage.
+
+The Phase 2 manifest records per-season row counts, outside-cohort counts, eligible counts and full-output hashes. Existing benchmark reference tables apply to both populations. The normal scheduled refresh publishes all files only after validation, with rollback protection. Stable input aliases are initially seeded from the already published snapshots; full peer outputs require the first successful refresh with the new code.

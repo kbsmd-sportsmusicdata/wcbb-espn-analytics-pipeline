@@ -225,6 +225,56 @@ def build_peer_features(players,skills,full_players,full_skills,c,metadata,run_i
         'interpretation':'Many parallel skill comparisons produce broad candidate coverage. Tags are descriptive film-review leads, not rarity or statistical significance claims.'}
     return p,s,reference,qa
 
+def write_full_population_bundle(full_players,full_skills,c,metadata,run_id,destination,cohort_ids,expected_reference):
+    """Publish every reference player using the same Phase 2 engine and source vintage."""
+    from .refresh import write_parquet
+    p,s,reference,qa=build_peer_features(full_players,full_skills,full_players,full_skills,c,metadata,run_id)
+    pd.testing.assert_frame_equal(reference,expected_reference)
+    require(len(p)==len(full_players) and len(s)==len(full_skills),'Full-population peer output lost rows')
+    require(set(map(tuple,p[KEY].to_numpy()))==set(map(tuple,full_players[KEY].to_numpy())),'Full-population player keys changed')
+    require(set(map(tuple,s[KEY+['skill']].to_numpy()))==set(map(tuple,full_skills[KEY+['skill']].to_numpy())),'Full-population skill keys changed')
+    for frame in (p,s):
+        frame['in_cohort_45']=frame.team_id.isin(cohort_ids)
+        frame['peer_output_population']='Full ESPN WCBB provider player feed'
+        frame['peer_source_run_id']=run_id
+    dest=Path(destination)
+    seasons={}
+    for year,g in p.groupby('api_season'):
+        year=int(year);sk=s[s.api_season.eq(year)]
+        folder=dest/f'season={year}'
+        write_parquet(g,folder/'player_peer_features.parquet')
+        write_parquet(sk,folder/'player_skill_peer_features.parquet')
+        seasons[str(year)]={'player_rows':len(g),'skill_rows':len(sk),'team_ids':int(g.team_id.nunique()),
+                            'outside_cohort_players':int((~g.in_cohort_45).sum()),
+                            'eligible_players':int(g.position_benchmark_eligible.sum()),
+                            'source_reference_id':metadata[year]['reference_id']}
+    return {'status':qa['status'],'population':c['population'],'source_run_id':run_id,
+            'seasons':seasons,'position_status_counts':qa['position_status_counts'],
+            'role_status_counts':qa['role_status_counts'],'skill_status_counts':qa['skill_status_counts'],
+            'functional_status_counts':qa['functional_status_counts'],
+            'reference_matches_cohort':True}
+
+
+def stage_stable_benchmark_inputs(publication,historical_folder,current_folder,metadata,run_id):
+    """Copy exact versioned input bytes to stable paths, with independently checked hashes."""
+    import hashlib,shutil
+    latest=Path(publication)/'latest'
+    latest.mkdir(parents=True,exist_ok=True)
+    result={'source_run_id':run_id,'population':metadata[2026]['population'],'seasons':{}}
+    for year,source in [(2025,historical_folder),(2026,current_folder)]:
+        folder=latest/f'season={year}';folder.mkdir()
+        meta=metadata[year]
+        for name in ('players.parquet','skills.parquet'):
+            shutil.copy2(Path(source)/name,folder/name)
+            require(hashlib.sha256((folder/name).read_bytes()).hexdigest()==meta['file_sha256'][name],
+                    'Stable benchmark input hash mismatch')
+        result['seasons'][str(year)]={'reference_id':meta['reference_id'],'retrieved_utc':meta['retrieved_utc'],
+                                     'input_vintage':meta['input_vintage'],'player_rows':meta['player_rows'],
+                                     'skill_rows':meta['skill_rows'],'file_sha256':meta['file_sha256']}
+    (latest/'manifest.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\\n'.replace('\\n','\n'))
+    return result
+
+
 def write_peer_bundle(players,skills,full_players,full_skills,root,destination,metadata,run_id):
     import hashlib
     from .refresh import write_parquet,_duckdb
@@ -242,6 +292,10 @@ def write_peer_bundle(players,skills,full_players,full_skills,root,destination,m
         for name,frame in tables.items():
             con.register('incoming',frame);con.execute(f'CREATE TABLE {name} AS SELECT * FROM incoming');con.unregister('incoming')
     finally:con.close()
+    cohort_ids=set(pd.read_csv(Path(root)/'data/reference/cohort_45.csv').espn_team_id.astype(int))
+    require(len(cohort_ids)==45,'Expected 45 cohort team IDs')
+    qa['full_population_outputs']=write_full_population_bundle(full_players,full_skills,c,metadata,run_id,
+        destination/'full_population',cohort_ids,reference)
     qa['source_run_id']=run_id
     qa['config_sha256']=hashlib.sha256((Path(root)/'data/reference/peer_benchmark_rules_v1.json').read_bytes()).hexdigest()
     qa['output_sha256']={str(f.relative_to(destination)):hashlib.sha256(f.read_bytes()).hexdigest() for f in destination.rglob('*') if f.is_file()}
@@ -258,18 +312,21 @@ def prepare_peer_bundle(root,stage,manifest):
     if pointer.is_file():
         path=json.loads(pointer.read_text())['path']
         require(not Path(path).is_absolute() and '..' not in Path(path).parts,'Unsafe benchmark cache path')
-        hp,hs,hm=load_population(root/path)
+        historical_folder=root/path
+        hp,hs,hm=load_population(historical_folder)
         import hashlib
         for name,digest in hm['phase1_rule_sha256'].items():
             require(hashlib.sha256((root/'data/reference'/name).read_bytes()).hexdigest()==digest,'Historical peer input rules changed; explicit re-extraction required')
     else:
         hp,hs,hm,folder=capture_population(root,stage,2025)
+        historical_folder=folder
         path=f'data/benchmarks/historical/{hm["reference_id"]}'
         dest=publication/'historical'/hm['reference_id'];shutil.copytree(folder,dest)
         (publication/'historical/latest.json').write_text(json.dumps({'path':path,'reference_id':hm['reference_id']},indent=2)+'\n')
     currentqa=next(q for q in manifest['qa'] if q['api_season']==2026)
     cp,cs,cm,folder=capture_population(root,stage,2026,currentqa)
     shutil.copytree(folder,publication/'current'/manifest['run_id'])
+    stage_stable_benchmark_inputs(publication,historical_folder,folder,{2025:hm,2026:cm},manifest['run_id'])
     players=read_parquet(stage/'processed/player_features.parquet')
     skills=read_parquet(stage/'processed/player_skill_features.parquet')
     fullp=pd.concat([hp,cp],ignore_index=True);fulls=pd.concat([hs,cs],ignore_index=True)

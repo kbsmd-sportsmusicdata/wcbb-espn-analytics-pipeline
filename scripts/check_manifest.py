@@ -36,3 +36,22 @@ assert hashlib.sha256((ROOT/'data/reference/peer_benchmark_rules_v1.json').read_
 for name,digest in peer['output_sha256'].items():
     assert hashlib.sha256((peers/name).read_bytes()).hexdigest()==digest,name
 print('Full-source Phase 2 outputs match the source run, configuration and file hashes')
+
+# Stable benchmark inputs and full-population outputs must match the published source run.
+stable=ROOT/'data/benchmarks/latest'
+latest=json.loads((stable/'manifest.json').read_text())
+assert latest['source_run_id']==s['run_id']
+full=peer['full_population_outputs']
+assert full['source_run_id']==s['run_id'] and full['reference_matches_cohort']
+for year in ('2025','2026'):
+    meta=peer['provenance'][year]
+    stable_meta=latest['seasons'][year]
+    assert stable_meta['reference_id']==meta['reference_id']
+    assert stable_meta['file_sha256']==meta['file_sha256']
+    assert full['seasons'][year]['player_rows']==meta['player_rows']==stable_meta['player_rows']
+    assert full['seasons'][year]['skill_rows']==meta['skill_rows']==stable_meta['skill_rows']
+    for name,digest in stable_meta['file_sha256'].items():
+        assert hashlib.sha256((stable/f'season={year}'/name).read_bytes()).hexdigest()==digest,name
+    for name in ('player_peer_features.parquet','player_skill_peer_features.parquet'):
+        assert f'full_population/season={year}/{name}' in peer['output_sha256']
+print('Stable input paths and full-population Phase 2 outputs verified')
