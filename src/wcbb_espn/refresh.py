@@ -300,6 +300,14 @@ def refresh_repository(root:Path,current_season:int=2026) -> dict:
         manifest['processed_snapshot_path'] = f'data/processed/snapshots/{run_id}'
         from .peers import prepare_peer_bundle
         manifest['peer_benchmarks'] = prepare_peer_bundle(root, stage, manifest)
+        from .catalog import write_catalog
+        manifest['dataset_catalog'] = write_catalog([
+            (stage/'benchmark_publication/latest', 'data/benchmarks/latest'),
+            (stage/'processed', 'data/processed'),
+            (stage/'latest', 'data/latest'),
+            (stage/f'season={current_season}', f'data/latest/season={current_season}'),
+            (stage/'frozen/season=2025' if baseline_needed else frozen_folder, 'data/frozen/season=2025'),
+        ], stage/'latest/catalog', run_id)
         from .publication import publication_transaction
         targets = [root/'reports/manifest_latest.json', root/manifest['snapshot_path']/'manifest.json']
         mappings = [(stage/'benchmark_publication', root/'data/benchmarks'),

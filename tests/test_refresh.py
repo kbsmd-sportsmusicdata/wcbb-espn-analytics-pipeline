@@ -132,6 +132,8 @@ def test_refresh_recovers_and_retains_frozen_source_provenance(tmp_path, monkeyp
     monkeypatch.setattr(refresh, 'fetch_one_season', fetch)
     monkeypatch.setattr(refresh, 'datetime', Clock)
     first = refresh.refresh_repository(tmp_path)
+    assert first['dataset_catalog']['source_run_id']==first['run_id']
+    assert (tmp_path/'data/latest/catalog/datasets.csv').is_file()
     sidecar = tmp_path / 'data/frozen/season=2025/provenance.json'
     assert json.loads(sidecar.read_text())['sources'] == first['qa'][0]['sources']
     frozen = {p: p.read_bytes() for p in sidecar.parent.rglob('*.parquet')}
