@@ -1,5 +1,5 @@
 {
-  "source_run_id": "20261125T012509Z",
+  "source_run_id": "20261126T032707Z",
   "population": "Full ESPN WCBB provider player feed; not independently verified NCAA roster coverage",
   "seasons": {
     "2025": {
@@ -14,14 +14,14 @@
       }
     },
     "2026": {
-      "reference_id": "2026_20261125T012508Z_bbd30d66d488",
-      "retrieved_utc": "2026-11-25T01:25:08Z",
+      "reference_id": "2026_20261126T032707Z_411edcc7783b",
+      "retrieved_utc": "2026-11-26T03:27:07Z",
       "input_vintage": "Current ingestion response",
-      "player_rows": 5599,
-      "skill_rows": 117579,
+      "player_rows": 5620,
+      "skill_rows": 118020,
       "file_sha256": {
-        "skills.parquet": "a57d01a293f28f6f20113084a729f68d0a0b7445ee0eda7aa559a6d7ca1ae073",
-        "players.parquet": "c4d03b06a278ec1ae030bab7764ec871badb40b8b9b9def6d529fced5c9ee8e8"
+        "players.parquet": "83b8480fcfac5fef884b80b86b28ad268ec06706f0facac34d56f6974693f3f0",
+        "skills.parquet": "afd83f3bae01cff254e2eff8f1cabd4f65815dff22008bada0199789d87347a6"
       }
     }
   }
