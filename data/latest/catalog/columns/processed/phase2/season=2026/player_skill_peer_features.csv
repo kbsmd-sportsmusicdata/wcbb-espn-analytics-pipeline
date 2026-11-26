@@ -47,6 +47,6 @@ data/processed/phase2/season=2026/player_skill_peer_features.parquet,44,skill_de
 data/processed/phase2/season=2026/player_skill_peer_features.parquet,45,skill_total_per100_position_pctile,DOUBLE,float64,11529,4416,7113,61.696591,38.303409,
 data/processed/phase2/season=2026/player_skill_peer_features.parquet,46,skill_total_per100_position_n,BIGINT,int64,11529,11529,0,0.0,100.0,
 data/processed/phase2/season=2026/player_skill_peer_features.parquet,47,skill_total_per100_position_status,VARCHAR,object,11529,11529,0,0.0,100.0,0.0
-data/processed/phase2/season=2026/player_skill_peer_features.parquet,48,functional_strength_tag,VARCHAR,object,11529,1122,10407,90.26802,9.73198,0.0
+data/processed/phase2/season=2026/player_skill_peer_features.parquet,48,functional_strength_tag,VARCHAR,object,11529,1123,10406,90.259346,9.740654,0.0
 data/processed/phase2/season=2026/player_skill_peer_features.parquet,49,functional_strength_status,VARCHAR,object,11529,11529,0,0.0,100.0,0.0
 data/processed/phase2/season=2026/player_skill_peer_features.parquet,50,skill_statistical_distinction,VARCHAR,object,11529,11529,0,0.0,100.0,0.0

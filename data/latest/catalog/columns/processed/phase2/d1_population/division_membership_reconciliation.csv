@@ -1,0 +1,16 @@
+dataset_path,column_index,column,duckdb_type,pandas_dtype,rows,non_missing,missing,missing_pct,coverage_pct,blank_string_count
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,0,api_season,BIGINT,int64,824,824,0,0.0,100.0,
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,1,team_id,BIGINT,int64,824,824,0,0.0,100.0,
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,2,provider_player_rows,BIGINT,int64,824,824,0,0.0,100.0,
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,3,provider_team_name,VARCHAR,object,824,824,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,4,membership_team_name,VARCHAR,object,824,726,98,11.893204,88.106796,0.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,5,conference_name,VARCHAR,object,824,726,98,11.893204,88.106796,0.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,6,division_verification_status,VARCHAR,object,824,726,98,11.893204,88.106796,0.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,7,ncaa_membership_status,VARCHAR,object,824,726,98,11.893204,88.106796,0.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,8,membership_source,VARCHAR,object,824,726,98,11.893204,88.106796,0.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,9,membership_source_url,VARCHAR,object,824,726,98,11.893204,88.106796,724.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,10,membership_evidence_note,VARCHAR,object,824,726,98,11.893204,88.106796,0.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,11,ncaa_division,VARCHAR,object,824,726,98,11.893204,88.106796,0.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,12,is_ncaa_d1,BOOLEAN,bool,824,824,0,0.0,100.0,
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,13,conference_tier,VARCHAR,object,824,726,98,11.893204,88.106796,0.0
+data/processed/phase2/d1_population/division_membership_reconciliation.parquet,14,membership_match_status,VARCHAR,object,824,824,0,0.0,100.0,0.0

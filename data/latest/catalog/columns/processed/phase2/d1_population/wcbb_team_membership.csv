@@ -1,0 +1,13 @@
+dataset_path,column_index,column,duckdb_type,pandas_dtype,rows,non_missing,missing,missing_pct,coverage_pct,blank_string_count
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,0,team_id,BIGINT,int64,726,726,0,0.0,100.0,
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,1,membership_team_name,VARCHAR,object,726,726,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,2,conference_name,VARCHAR,object,726,726,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,3,api_season,BIGINT,int64,726,726,0,0.0,100.0,
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,4,division_verification_status,VARCHAR,object,726,726,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,5,ncaa_membership_status,VARCHAR,object,726,726,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,6,membership_source,VARCHAR,object,726,726,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,7,membership_source_url,VARCHAR,object,726,726,0,0.0,100.0,724.0
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,8,membership_evidence_note,VARCHAR,object,726,726,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,9,ncaa_division,VARCHAR,object,726,726,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,10,is_ncaa_d1,BOOLEAN,bool,726,726,0,0.0,100.0,
+data/processed/phase2/d1_population/wcbb_team_membership.parquet,11,conference_tier,VARCHAR,object,726,726,0,0.0,100.0,0.0

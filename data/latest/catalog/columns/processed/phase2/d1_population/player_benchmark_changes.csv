@@ -1,0 +1,10 @@
+dataset_path,column_index,column,duckdb_type,pandas_dtype,rows,non_missing,missing,missing_pct,coverage_pct,blank_string_count
+data/processed/phase2/d1_population/player_benchmark_changes.parquet,0,api_season,BIGINT,int64,9237,9237,0,0.0,100.0,
+data/processed/phase2/d1_population/player_benchmark_changes.parquet,1,player_id,BIGINT,int64,9237,9237,0,0.0,100.0,
+data/processed/phase2/d1_population/player_benchmark_changes.parquet,2,team_id,BIGINT,int64,9237,9237,0,0.0,100.0,
+data/processed/phase2/d1_population/player_benchmark_changes.parquet,3,fingerprint_total_per100_position_pctile_d1,DOUBLE,float64,9237,5216,4021,43.53145,56.46855,
+data/processed/phase2/d1_population/player_benchmark_changes.parquet,4,functional_strength_tags_d1,VARCHAR,object,9237,9237,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/player_benchmark_changes.parquet,5,fingerprint_total_per100_position_pctile_provider,DOUBLE,float64,9237,5216,4021,43.53145,56.46855,
+data/processed/phase2/d1_population/player_benchmark_changes.parquet,6,functional_strength_tags_provider,VARCHAR,object,9237,9237,0,0.0,100.0,0.0
+data/processed/phase2/d1_population/player_benchmark_changes.parquet,7,fingerprint_total_percentile_change,DOUBLE,float64,9237,5216,4021,43.53145,56.46855,
+data/processed/phase2/d1_population/player_benchmark_changes.parquet,8,functional_tags_changed,BOOLEAN,bool,9237,9237,0,0.0,100.0,
