@@ -45,3 +45,15 @@ See [Phase 1 feature dictionary](player_feature_dictionary.md) for all added fie
 ## Phase 2 peer benchmarks
 
 The [Phase 2 dictionary](peer_feature_dictionary.md) documents position/role/skill percentiles, metric-specific denominators, source vintages, suppression states and model-based function candidates. The comparison universe is the full provider feed, while outputs remain the selected 45 teams.
+
+## GitHub-readable Parquet catalog
+
+After every successful refresh, open [data/latest/catalog/README.md](../data/latest/catalog/README.md). The catalog indexes canonical published Parquet paths (frozen cohort, stable full-provider inputs, selected Phase 1/2 and provider-wide Phase 2). Archived run snapshots and versioned benchmark copies remain at their original locations and are not duplicated.
+
+- `datasets.csv`: file path, rows, columns, size, SHA-256, coverage and links to individual previews/profiles.
+- `columns.csv` and `columns/<dataset path>.csv`: DuckDB logical types, pandas dtypes, exact full-file missing/nonmissing counts, coverage and separately counted blank strings.
+- `coverage.csv`: file/season rows, distinct team/player/skill IDs, benchmark-eligible and cohort-membership counts where present.
+- `previews/<dataset path>.csv`: at most 20 original rows spread across physical order; no imputation or statistical representativeness claim.
+- `manifest.json`: run ID, source and output hashes, scope and preview policy.
+
+NA/NaN are missing, not empty strings; rates for zero-row datasets are undefined. Team/player counts are distinct provider identifiers, not independently verified NCAA membership. Catalog generation occurs before rollback-protected publication and is checked by the existing manifest validator. No new scheduler or dependency is needed. The first successful refresh after merging generates the files.
