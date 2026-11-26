@@ -128,6 +128,8 @@ def test_refresh_recovers_and_retains_frozen_source_provenance(tmp_path, monkeyp
         (stage/'benchmark_publication').mkdir()
         return {'status':'PASS'}
     monkeypatch.setattr(peers, 'prepare_peer_bundle', peer_stub)
+    import wcbb_espn.d1 as d1
+    monkeypatch.setattr(d1,'prepare_d1_bundle',lambda root,stage,manifest: {'status':'PASS'})
     monkeypatch.setattr(refresh, 'load_cohort', lambda path: cohort)
     monkeypatch.setattr(refresh, 'fetch_one_season', fetch)
     monkeypatch.setattr(refresh, 'datetime', Clock)

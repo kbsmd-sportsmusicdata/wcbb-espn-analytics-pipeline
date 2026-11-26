@@ -36,6 +36,11 @@ def pct(n,d):
     return round(100*n/d,6) if d else None
 
 def population(path):
+    if '/d1_population/' in path:
+        if 'peer_benchmark_reference' in path:return 'Division I-competing reference distributions'
+        if '/cohort_45/' in path:return 'Selected cohort; Division I-competing reference'
+        if 'division_membership_reconciliation' in path:return 'All provider team IDs; D1 membership audit'
+        return 'Division I-competing membership or player population'
     if '/benchmarks/latest/' in path or '/full_population/' in path:
         return 'Full ESPN provider feed; not independently certified D1'
     if 'peer_benchmark_reference' in path:

@@ -81,3 +81,23 @@ for row in inventory:
     assert len(header)==int(row['columns'])
     assert n==int(row['preview_rows'])==min(int(row['rows']),receipt['preview_limit'])
 print('Catalog source hashes, output hashes, canonical coverage and preview row limits verified')
+
+# Phase 2 v2 D1 publication is separate from and does not overwrite provider-wide v1.
+d1=peers/'d1_population'
+d1_receipt=json.loads((d1/'manifest.json').read_text())
+assert d1_receipt==s['d1_peer_benchmarks']
+assert d1_receipt['source_run_id']==s['run_id'] and d1_receipt['reference_matches_cohort']
+assert d1_receipt['version']=='phase2_v2_d1'
+assert hashlib.sha256((ROOT/'data/reference/peer_benchmark_rules_v2.json').read_bytes()).hexdigest()==d1_receipt['config_sha256']
+for name,digest in d1_receipt['membership_input_sha256'].items():
+    assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,name
+for name,digest in d1_receipt['output_sha256'].items():
+    assert hashlib.sha256((d1/name).read_bytes()).hexdigest()==digest,name
+for year in ('2025','2026'):
+    info=d1_receipt['seasons'][year]
+    assert info['d1_team_ids']==363
+    assert info['d1_skill_rows']==21*info['d1_player_rows']
+    assert info['provider_player_rows']==info['d1_player_rows']+info['excluded_player_rows']
+    assert info['provider_player_rows']==peer['source_population_rows'][year]
+    assert info['cohort_player_rows']>0
+print('D1 membership, Phase 2 v2 output and source hashes verified')
