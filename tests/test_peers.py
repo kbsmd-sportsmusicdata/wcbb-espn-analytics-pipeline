@@ -135,3 +135,45 @@ def test_incomplete_full_source_skills_block():
     s=s.iloc[1:].copy()
     with pytest.raises(PipelineValidationError,match='missing skills'):
         build(p,s)
+
+
+def test_full_population_publication_matches_reference_and_retains_outside_cohort(tmp_path):
+    from wcbb_espn.peers import write_full_population_bundle
+    from wcbb_espn.refresh import read_parquet
+    p,s,c,m=fixtures()
+    for year in m:m[year]['reference_id']=str(year)
+    a,b,r,_=build_peer_features(p.iloc[[0,11,12,23]],s.iloc[[0,11,12,23]],p,s,c,m,'run')
+    qa=write_full_population_bundle(p,s,c,m,'run',tmp_path,{1},r)
+    assert qa['reference_matches_cohort']
+    for year in (2025,2026):
+        pp=read_parquet(tmp_path/f'season={year}/player_peer_features.parquet')
+        ss=read_parquet(tmp_path/f'season={year}/player_skill_peer_features.parquet')
+        assert len(pp)==len(ss)==12
+        assert pp.in_cohort_45.sum()==1
+        assert qa['seasons'][str(year)]['outside_cohort_players']==11
+        assert pp.usage_position_pctile.max()==100.
+        for _,row in a[a.api_season.eq(year)].iterrows():
+            assert pp.loc[pp.player_id.eq(row.player_id),'usage_position_pctile'].iloc[0]==row.usage_position_pctile
+        assert pp.peer_source_run_id.eq('run').all()
+
+
+def test_stable_benchmark_aliases_exact_bytes_and_reject_corrupt_hash(tmp_path):
+    import hashlib,json
+    from wcbb_espn.peers import stage_stable_benchmark_inputs
+    metadata={}
+    for year in (2025,2026):
+        folder=tmp_path/str(year);folder.mkdir()
+        hashes={}
+        for name in ('players.parquet','skills.parquet'):
+            payload=f'{year} {name}'.encode();(folder/name).write_bytes(payload)
+            hashes[name]=hashlib.sha256(payload).hexdigest()
+        metadata[year]={'population':'full','reference_id':str(year),'retrieved_utc':'t','input_vintage':'test',
+                        'player_rows':1,'skill_rows':1,'file_sha256':hashes}
+    pub=tmp_path/'publication'
+    stage_stable_benchmark_inputs(pub,tmp_path/'2025',tmp_path/'2026',metadata,'run')
+    assert json.loads((pub/'latest/manifest.json').read_text())['source_run_id']=='run'
+    for year in (2025,2026):
+        assert (pub/f'latest/season={year}/players.parquet').read_bytes()==(tmp_path/str(year)/'players.parquet').read_bytes()
+    (tmp_path/'2026/players.parquet').write_bytes(b'corrupt')
+    with pytest.raises(PipelineValidationError,match='hash mismatch'):
+        stage_stable_benchmark_inputs(tmp_path/'rejected',tmp_path/'2025',tmp_path/'2026',metadata,'bad-run')
