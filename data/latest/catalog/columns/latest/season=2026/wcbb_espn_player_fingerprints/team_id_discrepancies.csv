@@ -1,0 +1,14 @@
+dataset_path,column_index,column,duckdb_type,pandas_dtype,rows,non_missing,missing,missing_pct,coverage_pct,blank_string_count
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,0,player_id,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,1,team_id,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,2,fingerprint_team_id,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,3,DISPLAY_NAME,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,4,fingerprint_player_name,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,5,reason,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,6,team_requested,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,7,cohort,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,8,api_season,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,9,academic_season,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,10,retrieval_utc,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,11,team_data_source_url,VARCHAR,object,0,0,0,,,0
+data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet,12,fingerprint_source_url,VARCHAR,object,0,0,0,,,0

@@ -1,0 +1,675 @@
+{
+  "run_id": "20261126T035553Z",
+  "status": "PASS_WITH_REVIEW",
+  "source_api_seasons": [
+    2025,
+    2026
+  ],
+  "current_season": 2026,
+  "academic_season": "2026-27",
+  "cohort_count": 45,
+  "qa": [
+    {
+      "api_season": 2025,
+      "academic_season": "2025-26",
+      "status": "PASS",
+      "team_count": 45,
+      "player_count": 564,
+      "fingerprint_player_count": 564,
+      "skill_impact_rows": 11844,
+      "four_factor_rows": 135,
+      "bpi_rows": 45,
+      "team_id_discrepancies": 0,
+      "unkeyed_source_team_stats_rows": 0,
+      "max_team_netpoints_component_delta": 0.016667,
+      "percentile_universe": "FULL SOURCE SEASON, NOT SELECTED 45 TEAMS",
+      "independent_roster_verification": "NOT_PERFORMED",
+      "sources": {
+        "team_data": {
+          "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2025",
+          "sha256": "c25b2b149eb709d17d5608acd6031bc5a4cb6a8e6b46e2f426bec7752206a35d",
+          "bytes": 3134931
+        },
+        "fingerprint_data": {
+          "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2025",
+          "sha256": "a04efd802df947fb1cf3643dc62d6dd62bb7cd7d85234b0cd78c40ec06ac495c",
+          "bytes": 14497692
+        }
+      },
+      "retrieved_utc": "2026-11-23T20:54:47Z"
+    },
+    {
+      "api_season": 2026,
+      "academic_season": "2026-27",
+      "status": "PASS",
+      "team_count": 45,
+      "player_count": 549,
+      "fingerprint_player_count": 549,
+      "skill_impact_rows": 11529,
+      "four_factor_rows": 135,
+      "bpi_rows": 45,
+      "team_id_discrepancies": 0,
+      "unkeyed_source_team_stats_rows": 11,
+      "max_team_netpoints_component_delta": 0.042857,
+      "percentile_universe": "FULL SOURCE SEASON, NOT SELECTED 45 TEAMS",
+      "independent_roster_verification": "NOT_PERFORMED",
+      "sources": {
+        "team_data": {
+          "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2026",
+          "sha256": "411edcc7783b2379f5a5cdbab158d500e9c563a087c11daf8bb173278c519b8d",
+          "bytes": 3504101
+        },
+        "fingerprint_data": {
+          "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2026",
+          "sha256": "d9f553fc9e552a416a2d7ded422df01ee41d7a7f75bed3b756052dcdefb7afec",
+          "bytes": 16760400
+        }
+      },
+      "retrieved_utc": "2026-11-26T03:55:52Z",
+      "player_identity_changes": {
+        "added": [],
+        "removed": []
+      }
+    }
+  ],
+  "snapshot_path": "data/snapshots/20261126T035553Z",
+  "hex_reference_player_counts_2026_11_23": {
+    "2025": 564,
+    "2026": 548
+  },
+  "player_count_deltas_from_reference": {
+    "2025": 0,
+    "2026": 1
+  },
+  "source_lineage": "ESPN Analytics public /api/team-data and /api/fingerprint-data",
+  "snapshot_policy": "frozen 2025-26, rolling 2026-27; prior files preserved on failed QA",
+  "published_espn_percentiles": false,
+  "processed_features": {
+    "status": "PASS_WITH_REVIEW",
+    "feature_version": "phase1_v1",
+    "player_rows": 1113,
+    "skill_rows": 23373,
+    "player_null_counts": {
+      "fingerprint_impact_off_per100": 0,
+      "fingerprint_impact_def_per100": 0,
+      "fingerprint_impact_total_per100": 0,
+      "minutes_total_est": 0,
+      "minutes_share_est": 0,
+      "usage_pct": 2,
+      "assisted_rate_pct": 56,
+      "turnover_pct_display": 1,
+      "position_group": 0,
+      "minutes_sample_tier": 0,
+      "games_sample_tier": 0,
+      "playing_time_tier": 0,
+      "creation_context": 0,
+      "impact_balance": 0,
+      "identity_consistency_status": 0,
+      "evidence_status": 0,
+      "feature_qa_flags": 0,
+      "feature_version": 0,
+      "analysis_population": 0,
+      "derived_rate_model": 0,
+      "season_status": 0
+    },
+    "skill_null_counts": {
+      "skill_impact_off_per100": 0,
+      "skill_impact_def_per100": 0,
+      "skill_impact_total_per100": 0,
+      "functional_skill_group": 0,
+      "player_display_name": 0,
+      "player_fingerprint_minutes": 0,
+      "player_games_played": 0,
+      "player_evidence_status": 0,
+      "player_identity_consistency_status": 0,
+      "feature_version": 0,
+      "analysis_population": 0,
+      "derived_rate_model": 0,
+      "season_status": 0
+    },
+    "classifications": {
+      "position_group": {
+        "Guard": 645,
+        "Forward": 380,
+        "Center": 84,
+        "Unknown": 4
+      },
+      "minutes_sample_tier": {
+        "Small": 452,
+        "Established": 296,
+        "Developing": 183,
+        "Very small": 182
+      },
+      "games_sample_tier": {
+        "Small": 562,
+        "Established": 442,
+        "Developing": 80,
+        "Very small": 29
+      },
+      "playing_time_tier": {
+        "Regular rotation": 398,
+        "Limited rotation": 338,
+        "Rotation anchor": 207,
+        "Minimal": 170
+      },
+      "creation_context": {
+        "Mixed": 433,
+        "Mostly assisted": 324,
+        "Unknown": 212,
+        "More self-created": 144
+      },
+      "impact_balance": {
+        "Offensive-leaning": 401,
+        "Balanced": 218,
+        "Unknown": 210,
+        "Mixed-sign": 144,
+        "Defensive-leaning": 140
+      },
+      "identity_consistency_status": {
+        "Agreement": 1095,
+        "Review required": 18
+      },
+      "evidence_status": {
+        "Small sample": 630,
+        "Ready": 409,
+        "Missing key metric": 56,
+        "Identity review": 18
+      }
+    },
+    "flag_counts": {
+      "INVALID_FRACTION:fingerprint_usage": 2,
+      "INVALID_FRACTION:fingerprint_assisted_rate": 0,
+      "INVALID_FRACTION:TOV%": 1,
+      "INVALID_OR_MISSING_POSSESSIONS": 0,
+      "GAME_COUNT_REVIEW": 0,
+      "MINUTES_RECONCILIATION_REVIEW": 0
+    },
+    "season_rows": {
+      "2025": 564,
+      "2026": 549
+    },
+    "unknown_skill_count": 0,
+    "full_source_percentiles": "Preserved unchanged; original raw skill-impact ranks, not recalculated on cohort or per-100 rates",
+    "unresolved_issues": "Source name variants require review; small samples and invalid fractions remain labeled, never imputed.",
+    "source_run_id": "20261126T035553Z",
+    "source_qa": [
+      {
+        "api_season": 2025,
+        "academic_season": "2025-26",
+        "status": "PASS",
+        "team_count": 45,
+        "player_count": 564,
+        "fingerprint_player_count": 564,
+        "skill_impact_rows": 11844,
+        "four_factor_rows": 135,
+        "bpi_rows": 45,
+        "team_id_discrepancies": 0,
+        "unkeyed_source_team_stats_rows": 0,
+        "max_team_netpoints_component_delta": 0.016667,
+        "percentile_universe": "FULL SOURCE SEASON, NOT SELECTED 45 TEAMS",
+        "independent_roster_verification": "NOT_PERFORMED",
+        "sources": {
+          "team_data": {
+            "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2025",
+            "sha256": "c25b2b149eb709d17d5608acd6031bc5a4cb6a8e6b46e2f426bec7752206a35d",
+            "bytes": 3134931
+          },
+          "fingerprint_data": {
+            "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2025",
+            "sha256": "a04efd802df947fb1cf3643dc62d6dd62bb7cd7d85234b0cd78c40ec06ac495c",
+            "bytes": 14497692
+          }
+        },
+        "retrieved_utc": "2026-11-23T20:54:47Z"
+      },
+      {
+        "api_season": 2026,
+        "academic_season": "2026-27",
+        "status": "PASS",
+        "team_count": 45,
+        "player_count": 549,
+        "fingerprint_player_count": 549,
+        "skill_impact_rows": 11529,
+        "four_factor_rows": 135,
+        "bpi_rows": 45,
+        "team_id_discrepancies": 0,
+        "unkeyed_source_team_stats_rows": 11,
+        "max_team_netpoints_component_delta": 0.042857,
+        "percentile_universe": "FULL SOURCE SEASON, NOT SELECTED 45 TEAMS",
+        "independent_roster_verification": "NOT_PERFORMED",
+        "sources": {
+          "team_data": {
+            "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2026",
+            "sha256": "411edcc7783b2379f5a5cdbab158d500e9c563a087c11daf8bb173278c519b8d",
+            "bytes": 3504101
+          },
+          "fingerprint_data": {
+            "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2026",
+            "sha256": "d9f553fc9e552a416a2d7ded422df01ee41d7a7f75bed3b756052dcdefb7afec",
+            "bytes": 16760400
+          }
+        },
+        "retrieved_utc": "2026-11-26T03:55:52Z",
+        "player_identity_changes": {
+          "added": [],
+          "removed": []
+        }
+      }
+    ],
+    "rule_sha256": {
+      "player_feature_rules_v1.json": "f0e476d313e43ebcbc4eb6a44a5732a0e50def93149f2ebb1c66368dea1d7719",
+      "skill_taxonomy_v1.csv": "4477033c89b9a93b38a1964f241269c53f4f14d72814d45b7ee274aee16d5084"
+    },
+    "output_sha256": {
+      "player_features.csv": "705bf78eda7276ccb3070a4b824bf217ab3440a9f05a1eb2510cdfed57efe260",
+      "player_skill_features.csv": "9f138129bc86e412b32d8aefe50235a6ee08457994ef155eff680671ca2d19f1",
+      "player_skill_features.parquet": "135e723a52c5c75113b57aec7eac94367ed5c2e44fc410bd392d1890b4e5b5ad",
+      "player_features.parquet": "a94c48680a03e6541a02259108bbf2fd7c2243df1ca90dab6377984f3a106d5b",
+      "player_features.duckdb": "b30c354b0a2c889109fed318c43cad20270b5ce954ddffb0a5b7cc9c9cb5bbd1",
+      "season=2026/player_features.csv": "1384ed73b2d89690afe1587d129dce30b32bf6a6ef88993a2c2d7a2c553cef38",
+      "season=2026/player_skill_features.csv": "47327a77d91d9417d0a2891cdd418bedf9456ed571c4f6843bce13ffc5ec4341",
+      "season=2026/player_skill_features.parquet": "fadca297991858e7f8b0833d5b740f79fbf97a7ecf458ff36926e13b53e7b7b2",
+      "season=2026/player_features.parquet": "58f4ab2a3d26ecf8bcdb00eab3b651a37d4fcafb9926cecf6167caade71f545e",
+      "season=2025/player_features.csv": "401ee5e7c54057181d88eefca1474e4ed2cbd0ff7c806a27798029a70146714c",
+      "season=2025/player_skill_features.csv": "708ac9870592d400e99c4a33d3c5ab61d1bd3245d6aa73142a70f9cb897f304e",
+      "season=2025/player_skill_features.parquet": "84e1445d419b84ae2791ee40023da832761f694bb8157e948a87bed62ff1ec4e",
+      "season=2025/player_features.parquet": "4194048fbbdd6d3d08aae8a82207d1a4e3770c6f8f1ad6f9da9a75be03a20350"
+    }
+  },
+  "processed_snapshot_path": "data/processed/snapshots/20261126T035553Z",
+  "peer_benchmarks": {
+    "status": "PASS_WITH_REVIEW",
+    "version": "phase2_v1",
+    "player_rows": 1113,
+    "skill_rows": 23373,
+    "reference_rows": 1020,
+    "population": "Full ESPN WCBB provider player feed; not independently verified NCAA roster coverage",
+    "source_population_rows": {
+      "2025": 4677,
+      "2026": 5620
+    },
+    "eligible_source_positions": {
+      "2025": {
+        "Guard": 2054,
+        "Forward": 945,
+        "Center": 143
+      },
+      "2026": {
+        "Guard": 1428,
+        "Forward": 575,
+        "Center": 71
+      }
+    },
+    "position_status_counts": {
+      "Ineligible exposure or identity": 435,
+      "Available": 398,
+      "Provisional": 276,
+      "Unknown position": 4
+    },
+    "role_status_counts": {
+      "Role unavailable": 440,
+      "Available": 397,
+      "Provisional": 266,
+      "Insufficient peers": 10
+    },
+    "reference_status_counts": {
+      "Insufficient peers": 352,
+      "Available": 210,
+      "Provisional": 198,
+      "Unknown position": 170,
+      "Constant distribution": 90
+    },
+    "player_missing_percentiles": {
+      "usage_position_pctile": 440,
+      "efg_position_pctile": 439,
+      "efg_role_pctile": 450,
+      "ast40_position_pctile": 439,
+      "ast40_role_pctile": 450,
+      "reb40_position_pctile": 439,
+      "ftr_position_pctile": 439,
+      "tov_position_pctile": 439,
+      "tov_role_pctile": 450,
+      "assisted_rate_position_pctile": 439,
+      "fingerprint_off_per100_position_pctile": 439,
+      "fingerprint_def_per100_position_pctile": 439,
+      "fingerprint_total_per100_position_pctile": 439,
+      "fingerprint_total_per100_role_pctile": 450
+    },
+    "skill_status_counts": {
+      "Ineligible exposure or identity": 9135,
+      "Available": 6368,
+      "Provisional": 4416,
+      "Constant distribution": 3370,
+      "Unknown position": 84
+    },
+    "functional_status_counts": {
+      "Model-based candidate; film review required": 654,
+      "Ineligible or source vintage mismatch": 439,
+      "No qualifying candidate": 20
+    },
+    "identity_review_observations": 18,
+    "provenance": {
+      "2025": {
+        "api_season": 2025,
+        "retrieved_utc": "2026-11-24T01:24:45Z",
+        "sources": {
+          "team_data": {
+            "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2025",
+            "sha256": "c25b2b149eb709d17d5608acd6031bc5a4cb6a8e6b46e2f426bec7752206a35d",
+            "bytes": 3134931
+          },
+          "fingerprint_data": {
+            "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2025",
+            "sha256": "a04efd802df947fb1cf3643dc62d6dd62bb7cd7d85234b0cd78c40ec06ac495c",
+            "bytes": 14497692
+          }
+        },
+        "input_vintage": "Historical re-extraction",
+        "reference_id": "2025_20261124T012445Z_c25b2b149eb7",
+        "player_rows": 4677,
+        "skill_rows": 98217,
+        "fingerprint_coverage": 1.0,
+        "population": "Full ESPN WCBB provider player feed; not independently verified NCAA roster coverage",
+        "file_sha256": {
+          "players.parquet": "1d13aa377aeb1a346f823d9b3036687718c317df07ef6f49aff5ad7d032f7d23",
+          "skills.parquet": "47c197d677909ace6d24f362094fc394f216127d24dd11684dc761ad1256bf7a"
+        },
+        "phase1_rule_sha256": {
+          "player_feature_rules_v1.json": "f0e476d313e43ebcbc4eb6a44a5732a0e50def93149f2ebb1c66368dea1d7719",
+          "skill_taxonomy_v1.csv": "4477033c89b9a93b38a1964f241269c53f4f14d72814d45b7ee274aee16d5084"
+        }
+      },
+      "2026": {
+        "api_season": 2026,
+        "retrieved_utc": "2026-11-26T03:55:52Z",
+        "sources": {
+          "team_data": {
+            "url": "https://espnanalytics.com/api/team-data?league=wcbb&season=2026",
+            "sha256": "411edcc7783b2379f5a5cdbab158d500e9c563a087c11daf8bb173278c519b8d",
+            "bytes": 3504101
+          },
+          "fingerprint_data": {
+            "url": "https://espnanalytics.com/api/fingerprint-data?league=wcbb&season=2026",
+            "sha256": "d9f553fc9e552a416a2d7ded422df01ee41d7a7f75bed3b756052dcdefb7afec",
+            "bytes": 16760400
+          }
+        },
+        "input_vintage": "Current ingestion response",
+        "reference_id": "2026_20261126T035552Z_411edcc7783b",
+        "player_rows": 5620,
+        "skill_rows": 118020,
+        "fingerprint_coverage": 1.0,
+        "population": "Full ESPN WCBB provider player feed; not independently verified NCAA roster coverage",
+        "phase1_rule_sha256": {
+          "player_feature_rules_v1.json": "f0e476d313e43ebcbc4eb6a44a5732a0e50def93149f2ebb1c66368dea1d7719",
+          "skill_taxonomy_v1.csv": "4477033c89b9a93b38a1964f241269c53f4f14d72814d45b7ee274aee16d5084"
+        },
+        "file_sha256": {
+          "players.parquet": "a6a2958a455cac8e3221df43d9a68bedf29e2114be105501ab7caa0381b67637",
+          "skills.parquet": "4177ffc8c3002adc21977d47cd852437311072418c05d20d407460bc1e6bb7bc"
+        }
+      }
+    },
+    "metric_definition_cautions": [
+      "AST_40 and REB_40 retain provider labels; their rate denominators are not independently verified. Compare descriptively only.",
+      "High turnover, assisted rate or usage percentiles are not quality labels.",
+      "Historical reference is a separate extraction; source drift is suppressed, not filled.",
+      "Current benchmarks and model-based function candidates are provisional and require film validation."
+    ],
+    "source_population_quality": {
+      "2025": {
+        "total_players": 4677,
+        "eligible_players": 3142,
+        "identity_review": 93,
+        "unknown_position": 35,
+        "below_or_missing_games": 507,
+        "below_or_missing_minutes": 1317,
+        "below_or_missing_possessions": 1456,
+        "exposure_reconciliation_review": 0,
+        "note": "Exclusion reason counts overlap; valid metric-specific counts are in the reference table."
+      },
+      "2026": {
+        "total_players": 5620,
+        "eligible_players": 2074,
+        "identity_review": 200,
+        "unknown_position": 83,
+        "below_or_missing_games": 2090,
+        "below_or_missing_minutes": 3228,
+        "below_or_missing_possessions": 3449,
+        "exposure_reconciliation_review": 0,
+        "note": "Exclusion reason counts overlap; valid metric-specific counts are in the reference table."
+      }
+    },
+    "function_candidate_breadth": {
+      "eligible_selected_players": 674,
+      "selected_players_with_candidates": 654,
+      "interpretation": "Many parallel skill comparisons produce broad candidate coverage. Tags are descriptive film-review leads, not rarity or statistical significance claims."
+    },
+    "full_population_outputs": {
+      "status": "PASS_WITH_REVIEW",
+      "population": "Full ESPN WCBB provider player feed; not independently verified NCAA roster coverage",
+      "source_run_id": "20261126T035553Z",
+      "seasons": {
+        "2025": {
+          "player_rows": 4677,
+          "skill_rows": 98217,
+          "team_ids": 363,
+          "outside_cohort_players": 4113,
+          "eligible_players": 3142,
+          "source_reference_id": "2025_20261124T012445Z_c25b2b149eb7"
+        },
+        "2026": {
+          "player_rows": 5620,
+          "skill_rows": 118020,
+          "team_ids": 461,
+          "outside_cohort_players": 5071,
+          "eligible_players": 2074,
+          "source_reference_id": "2026_20261126T035552Z_411edcc7783b"
+        }
+      },
+      "position_status_counts": {
+        "Ineligible exposure or identity": 4963,
+        "Available": 3142,
+        "Provisional": 2074,
+        "Unknown position": 118
+      },
+      "role_status_counts": {
+        "Role unavailable": 5083,
+        "Available": 3140,
+        "Provisional": 2003,
+        "Insufficient peers": 71
+      },
+      "skill_status_counts": {
+        "Ineligible exposure or identity": 104223,
+        "Available": 50272,
+        "Provisional": 33184,
+        "Constant distribution": 26080,
+        "Unknown position": 2478
+      },
+      "functional_status_counts": {
+        "Ineligible or source vintage mismatch": 5081,
+        "Model-based candidate; film review required": 4214,
+        "No qualifying candidate": 1002
+      },
+      "reference_matches_cohort": true
+    },
+    "source_run_id": "20261126T035553Z",
+    "config_sha256": "93ad75a2609b2cb0ed90e7578f28ebe6e6b39ccfb0dcdef2cdf800650c0b8d6a",
+    "output_sha256": {
+      "peer_benchmark_reference.csv": "dfa036d1ed0d670aced82067c28fda4c89516166a0ab64f16d0817d8b9c8fddd",
+      "player_skill_peer_features.parquet": "ab9558fcb44d31cc9af6a7280c598c3b0f64a330f94260e02fa6a2e3669ef906",
+      "player_skill_peer_features.csv": "07d73edc2174f1168c5b24066b73cf66b724ea8e17598c4a61f9ebc4317a8823",
+      "player_peer_features.parquet": "dfef5bd9f767f195f233298d72e29b37d0de1b748bb8f3e61b17c92440efff1d",
+      "peer_benchmark_reference.parquet": "8da50b63da782e830b7283bf21847665bf77680a750ec78fefa270e19fdf3d04",
+      "peer_features.duckdb": "7bf3f66574f996bfc818e5c597f1c4fc05c981d8f9636f2d573e39f64c5b47d2",
+      "player_peer_features.csv": "4e41554cb003b788f31d932799a3126522baec6f671a874546cb8dbc5fd3f82c",
+      "season=2026/peer_benchmark_reference.csv": "b5603f64a09e241a6b5be98fa6a58769e73c3e079fb244773d901e0282dbd1e2",
+      "season=2026/player_skill_peer_features.parquet": "1744007ff44c9e010bcc449fb7562a428184433ba2f4f14fb25a8eaca218fd84",
+      "season=2026/player_skill_peer_features.csv": "1bd04159ff492bff0965e1baa6268c587c76995fe7da6a1e9c4023c4ccb8a0dc",
+      "season=2026/player_peer_features.parquet": "5dea1fc4c062b75bb03e48a2d81bb95a451ccf22d64750b463033512a5724fa8",
+      "season=2026/peer_benchmark_reference.parquet": "0e01daf076164426e3d0bdcec790472348b4d104403b6f3ba8ffec680650b7b9",
+      "season=2026/player_peer_features.csv": "94c7c2e62dbe984b35022c41c5bf1d7c87af022452fbc3e6e2bbb1b043bb8e40",
+      "full_population/season=2026/player_skill_peer_features.parquet": "f48afa946dacd6958e764b722b50e4fdf61f83596189ac2f97710c4e3184698c",
+      "full_population/season=2026/player_peer_features.parquet": "236715af1dfd2899061122a687157e68fcee98917b9ff325f20a233c0f5b7f74",
+      "full_population/season=2025/player_skill_peer_features.parquet": "c04065abb606cf31f10cbc6c115673ae6abbf66b74ae4113da44fc2ee1a8f4bb",
+      "full_population/season=2025/player_peer_features.parquet": "73b1f7e06b3083a2cd23ce9a88c85f526b7400231969d5bc551e104f1987d152",
+      "season=2025/peer_benchmark_reference.csv": "6f8801af0f14b52d735771cbefd614fb4c27a019ed4c96f446ed0b75b76bc1a6",
+      "season=2025/player_skill_peer_features.parquet": "6206759ee11da16e0d6a7f3866ad8e910d25ed2bb5088f6e82404a83b1733be9",
+      "season=2025/player_skill_peer_features.csv": "637452a51fce8503c6c5773d828acb79d877a7a7c61d0eb3e0a3fa6fd33e10ae",
+      "season=2025/player_peer_features.parquet": "8d550ae1ea781c32c7181a44616c37c41ee89ba983e8b3f2a817bd95bdbe06ba",
+      "season=2025/peer_benchmark_reference.parquet": "29407602a4ae47ff2372709410cf2c8d67fa93ff092cdcf0f43bce08e59f1a7c",
+      "season=2025/player_peer_features.csv": "a98618059863427d6611331dd7cc93ffd1455aa8c65cb29e20e44e42d84eeb12"
+    }
+  },
+  "dataset_catalog": {
+    "source_run_id": "20261126T035553Z",
+    "catalog_version": "v1",
+    "status": "PASS",
+    "scope": "Canonical latest, frozen, processed and stable benchmark Parquet files; immutable archival copies are not reprofiled.",
+    "preview_limit": 20,
+    "sampling": "Deterministic evenly spaced physical row indices; not a statistical sample",
+    "dataset_count": 44,
+    "column_profile_count": 2138,
+    "coverage_row_count": 54,
+    "source_sha256": {
+      "data/benchmarks/latest/season=2025/players.parquet": "1d13aa377aeb1a346f823d9b3036687718c317df07ef6f49aff5ad7d032f7d23",
+      "data/benchmarks/latest/season=2025/skills.parquet": "47c197d677909ace6d24f362094fc394f216127d24dd11684dc761ad1256bf7a",
+      "data/benchmarks/latest/season=2026/players.parquet": "a6a2958a455cac8e3221df43d9a68bedf29e2114be105501ab7caa0381b67637",
+      "data/benchmarks/latest/season=2026/skills.parquet": "4177ffc8c3002adc21977d47cd852437311072418c05d20d407460bc1e6bb7bc",
+      "data/frozen/season=2025/wcbb_espn_player_fingerprints/player_season.parquet": "b4e4ce7180be815ff839dd6f4596a641b7208c949c0c7145b9126bd993808947",
+      "data/frozen/season=2025/wcbb_espn_player_fingerprints/skill_impacts.parquet": "c3646fddd993d0e2810958ac6077684569ccdf30a43fad20638e9781e3ce612d",
+      "data/frozen/season=2025/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet": "d3cc535992df05be77f22adab80ec026e3d5873a864c34c9e4ccfb96c0e37a4b",
+      "data/frozen/season=2025/wcbb_espn_team_netpoints/bpi.parquet": "91985735c1d94bf556ce64aaea93e78955393f8ae3dfa2eb4ba31994a3fa102d",
+      "data/frozen/season=2025/wcbb_espn_team_netpoints/four_factors.parquet": "6e3479109718b510ff624f882b9d5d7d97e2d89a7939f7d093e87c25c7219a83",
+      "data/frozen/season=2025/wcbb_espn_team_netpoints/team_season.parquet": "3b9a3ac7b2ae416480958aea79b4a6297d09cdb6fc40ab384d7019bd4839649d",
+      "data/frozen/season=2025/wcbb_espn_team_netpoints/unkeyed_team_stats.parquet": "0f307f5b33d0ccd5043c44c70b78c258f2b8fa82e44cf0640b3cd28ef79938fb",
+      "data/latest/season=2026/wcbb_espn_player_fingerprints/player_season.parquet": "1e860a8d2113eb02a5c5b71fcd20b1fa5666b56d5d8781d0f9194cbfdeb6f15e",
+      "data/latest/season=2026/wcbb_espn_player_fingerprints/skill_impacts.parquet": "8813ae93704a655c42938d2db1cf977b8d775b0fa7454b5d421d889839bbea0a",
+      "data/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet": "d3cc535992df05be77f22adab80ec026e3d5873a864c34c9e4ccfb96c0e37a4b",
+      "data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet": "61bee615414e51f7f39f92c218d99528e21249b7669578ad09b68ce626098036",
+      "data/latest/season=2026/wcbb_espn_team_netpoints/four_factors.parquet": "60eab39b21d47ee5e27f6e8a3da293fe8b596aa15fb07a394df10e1ee22ebc82",
+      "data/latest/season=2026/wcbb_espn_team_netpoints/team_season.parquet": "3082779756bf7b326f9659018234afe7630ce21014456dff51669aa3e9de0e2e",
+      "data/latest/season=2026/wcbb_espn_team_netpoints/unkeyed_team_stats.parquet": "62e667659fd7e1a71ea681d960dad70158747ef8c616fa72d27886731e724b5e",
+      "data/latest/wcbb_espn_player_fingerprints/player_season.parquet": "367f0cf0635afc28224fd2b97664afc4c21b681119bd39eedaa4be1937208f1a",
+      "data/latest/wcbb_espn_player_fingerprints/skill_impacts.parquet": "58e9321c2971c780000f9389b2a4c90d78845b6d2cfa9d0801ce2f93c355a148",
+      "data/latest/wcbb_espn_player_fingerprints/team_id_discrepancies.parquet": "97d8063a3244990983ed6aa088c3317b37e1ecbdcbc371855a75cfdba189e4f3",
+      "data/latest/wcbb_espn_team_netpoints/bpi.parquet": "addf73bcfe0e312eefb9a5c39f7798bd733474111613773d15c2099c1fb00a94",
+      "data/latest/wcbb_espn_team_netpoints/four_factors.parquet": "788fb0201f4c0651f4650598edf2ff6182eeaee804ba1a65bb2f278bc0563093",
+      "data/latest/wcbb_espn_team_netpoints/team_season.parquet": "af0af725f32178a233476bbe0aa781f882a2501575d445aa807302de17156279",
+      "data/latest/wcbb_espn_team_netpoints/unkeyed_team_stats.parquet": "5f15a1a6813e5297f234089ea4434a8a354ef52b4999d38789cca3c9977ee3b6",
+      "data/processed/phase2/full_population/season=2025/player_peer_features.parquet": "73b1f7e06b3083a2cd23ce9a88c85f526b7400231969d5bc551e104f1987d152",
+      "data/processed/phase2/full_population/season=2025/player_skill_peer_features.parquet": "c04065abb606cf31f10cbc6c115673ae6abbf66b74ae4113da44fc2ee1a8f4bb",
+      "data/processed/phase2/full_population/season=2026/player_peer_features.parquet": "236715af1dfd2899061122a687157e68fcee98917b9ff325f20a233c0f5b7f74",
+      "data/processed/phase2/full_population/season=2026/player_skill_peer_features.parquet": "f48afa946dacd6958e764b722b50e4fdf61f83596189ac2f97710c4e3184698c",
+      "data/processed/phase2/peer_benchmark_reference.parquet": "8da50b63da782e830b7283bf21847665bf77680a750ec78fefa270e19fdf3d04",
+      "data/processed/phase2/player_peer_features.parquet": "dfef5bd9f767f195f233298d72e29b37d0de1b748bb8f3e61b17c92440efff1d",
+      "data/processed/phase2/player_skill_peer_features.parquet": "ab9558fcb44d31cc9af6a7280c598c3b0f64a330f94260e02fa6a2e3669ef906",
+      "data/processed/phase2/season=2025/peer_benchmark_reference.parquet": "29407602a4ae47ff2372709410cf2c8d67fa93ff092cdcf0f43bce08e59f1a7c",
+      "data/processed/phase2/season=2025/player_peer_features.parquet": "8d550ae1ea781c32c7181a44616c37c41ee89ba983e8b3f2a817bd95bdbe06ba",
+      "data/processed/phase2/season=2025/player_skill_peer_features.parquet": "6206759ee11da16e0d6a7f3866ad8e910d25ed2bb5088f6e82404a83b1733be9",
+      "data/processed/phase2/season=2026/peer_benchmark_reference.parquet": "0e01daf076164426e3d0bdcec790472348b4d104403b6f3ba8ffec680650b7b9",
+      "data/processed/phase2/season=2026/player_peer_features.parquet": "5dea1fc4c062b75bb03e48a2d81bb95a451ccf22d64750b463033512a5724fa8",
+      "data/processed/phase2/season=2026/player_skill_peer_features.parquet": "1744007ff44c9e010bcc449fb7562a428184433ba2f4f14fb25a8eaca218fd84",
+      "data/processed/player_features.parquet": "a94c48680a03e6541a02259108bbf2fd7c2243df1ca90dab6377984f3a106d5b",
+      "data/processed/player_skill_features.parquet": "135e723a52c5c75113b57aec7eac94367ed5c2e44fc410bd392d1890b4e5b5ad",
+      "data/processed/season=2025/player_features.parquet": "4194048fbbdd6d3d08aae8a82207d1a4e3770c6f8f1ad6f9da9a75be03a20350",
+      "data/processed/season=2025/player_skill_features.parquet": "84e1445d419b84ae2791ee40023da832761f694bb8157e948a87bed62ff1ec4e",
+      "data/processed/season=2026/player_features.parquet": "58f4ab2a3d26ecf8bcdb00eab3b651a37d4fcafb9926cecf6167caade71f545e",
+      "data/processed/season=2026/player_skill_features.parquet": "fadca297991858e7f8b0833d5b740f79fbf97a7ecf458ff36926e13b53e7b7b2"
+    },
+    "output_sha256": {
+      "README.md": "5817a6b77ce7f13b7235d44475fa1d4d9098dae8a4bcc1ae850f2d1c679f6537",
+      "columns/benchmarks/latest/season=2025/players.csv": "51233a068ea93695a1a29b43a9a0994e4d22254567b40118722943e503bbad5c",
+      "columns/benchmarks/latest/season=2025/skills.csv": "bb19603253019191130347c2b87770972582261e46095f0afa7a3a7d0ba589ae",
+      "columns/benchmarks/latest/season=2026/players.csv": "4d50417a6085203686833c7951a162c8a95d5982e03d87c17abd8854d1beb6a2",
+      "columns/benchmarks/latest/season=2026/skills.csv": "fd40e480a156043dd82da80ed5b1be799ba9d1a205bbc229c0d8094c8a367b5b",
+      "columns/frozen/season=2025/wcbb_espn_player_fingerprints/player_season.csv": "613755e3b83b0a43afe98cabe44b31b286533bdbb8f09c60824e75a2009fc7c8",
+      "columns/frozen/season=2025/wcbb_espn_player_fingerprints/skill_impacts.csv": "7d66567e5e50dea765742583cc539b44f6e1fce84891cadd104f1f8892146bd7",
+      "columns/frozen/season=2025/wcbb_espn_player_fingerprints/team_id_discrepancies.csv": "c6143d04034c1f57ce1171ed20a224f6d2a5adb58792b83e3ae4180b6e55031b",
+      "columns/frozen/season=2025/wcbb_espn_team_netpoints/bpi.csv": "7dda583ea79fdaca76dc68d83add09854c0edee99661d8149a9cec6e478d4044",
+      "columns/frozen/season=2025/wcbb_espn_team_netpoints/four_factors.csv": "a150d639d353173df3896958978a5576ef0b8dbd84bc57afbc3425add46ab5c2",
+      "columns/frozen/season=2025/wcbb_espn_team_netpoints/team_season.csv": "7764ca35605361a03d6502c3a74ee4675e8f373fa54d6bdb9b294f5c29452e01",
+      "columns/frozen/season=2025/wcbb_espn_team_netpoints/unkeyed_team_stats.csv": "ed67f94122c5c38f6f232522f9f47bc15c04b0d469c1b341b791af11c9750c20",
+      "columns/latest/season=2026/wcbb_espn_player_fingerprints/player_season.csv": "a3b37c522000e17c104a5fe7022e43f4fcd92538bf193e26217aa8d581a5f237",
+      "columns/latest/season=2026/wcbb_espn_player_fingerprints/skill_impacts.csv": "c0aa00d6266790057982b38ab18e07b413df66302cd1ff1d6c9beddb1ca4e240",
+      "columns/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.csv": "39396b946586c61804871c48fd42b5e8e8c31f0934c554993d9064d8257eb31c",
+      "columns/latest/season=2026/wcbb_espn_team_netpoints/bpi.csv": "1cc5417190d5f8c794496c337b44830170096985d7a509baaca601feaa74a604",
+      "columns/latest/season=2026/wcbb_espn_team_netpoints/four_factors.csv": "2ba859fa424b2f59e4347829ccdfeacdae199d471a501bf33f1059c11114562d",
+      "columns/latest/season=2026/wcbb_espn_team_netpoints/team_season.csv": "b202115fd504f856e58370ad302a1b023d78f1b7a75f1adaa89831030d4ccde9",
+      "columns/latest/season=2026/wcbb_espn_team_netpoints/unkeyed_team_stats.csv": "8bdfc7a6fdb63ecad57f76e87338ad75883119f03cde588e759a1507807ccf11",
+      "columns/latest/wcbb_espn_player_fingerprints/player_season.csv": "6af0adaf911a816833ad9fdcf6f4ee0268013e80f8acf4cc4118af5b8a0841a7",
+      "columns/latest/wcbb_espn_player_fingerprints/skill_impacts.csv": "79c14d53685c35bfe85e3993aa4751257b5e30c254277c6ca232730a87d7c5fe",
+      "columns/latest/wcbb_espn_player_fingerprints/team_id_discrepancies.csv": "e81e6ab4bed376cdc19384b182925a4f8b8a2c9394aec36ae2ce55c6e1f1a1cc",
+      "columns/latest/wcbb_espn_team_netpoints/bpi.csv": "29c67d3dc3b9546a795c5a50011558a55b7b85ba1676c4b7453a066939dc52f4",
+      "columns/latest/wcbb_espn_team_netpoints/four_factors.csv": "102b35af554e35e70a0507b31bb109c4936f256c128ab9660ee37d2c0ec33250",
+      "columns/latest/wcbb_espn_team_netpoints/team_season.csv": "b4a15373fa24ea2a1cb240c7a7873314dbd9b95007a5f2ac6efce7cad23c6704",
+      "columns/latest/wcbb_espn_team_netpoints/unkeyed_team_stats.csv": "97c50df43ae74a4b7f0c257f25a7c4390e5da5f7223a39985b1284da8de2c14a",
+      "columns/processed/phase2/full_population/season=2025/player_peer_features.csv": "91a7ba8769daaeaf29f8dba0bedf9038f749f5e88d872a7b6771068a4f254d2f",
+      "columns/processed/phase2/full_population/season=2025/player_skill_peer_features.csv": "0a8a0a8f40c139adce60aef54b49ec984d2eb854e64b8ee5b954537611cdd627",
+      "columns/processed/phase2/full_population/season=2026/player_peer_features.csv": "a8069fcffb870479f01538856131e7cf231b0dc6a991939b47a7ff988a8b2356",
+      "columns/processed/phase2/full_population/season=2026/player_skill_peer_features.csv": "872f547b83b1b4d597ae22b312a8d1ed26c3dbc9c522ad94bde95d1981e1b5a4",
+      "columns/processed/phase2/peer_benchmark_reference.csv": "16753808cd00f38ed24db91f2e9225d4c81f7023819c4d35b32b027fce311e41",
+      "columns/processed/phase2/player_peer_features.csv": "bab849fd6ea898a5588e3561b9e3172ae4c1b84320a9701625b1dbb11e9b6a61",
+      "columns/processed/phase2/player_skill_peer_features.csv": "bd044912af9b0ed7bee49e0ea5e88ec8cb6dc64866c0da853e873a7d8ec13aba",
+      "columns/processed/phase2/season=2025/peer_benchmark_reference.csv": "430f2e21710313eb8c912f9eb4bbc17ffaa57fe491393a8ce0b7116eb0cb377d",
+      "columns/processed/phase2/season=2025/player_peer_features.csv": "4412bf4b86ba10026e417df3f15541447e008bc406886e03afe5851c193f2b3e",
+      "columns/processed/phase2/season=2025/player_skill_peer_features.csv": "18b46544d0a8f625e47a719afdea2bcbf93db9d180feb27590d2738626c1ade0",
+      "columns/processed/phase2/season=2026/peer_benchmark_reference.csv": "3b6cec6dbcdea2f0c83c33e789ef11fba1c0e78e25f056a131d3cb82cb3f6503",
+      "columns/processed/phase2/season=2026/player_peer_features.csv": "53bc12417160aa4baa8ddc0c3d4e150ece998e4dfa9381d221df81a6be37a1bc",
+      "columns/processed/phase2/season=2026/player_skill_peer_features.csv": "158a2c28d34a7b7dcb79101d35912202f4cf95ad0342e0a576a2f163dfdf5e02",
+      "columns/processed/player_features.csv": "f36941d2ad5d87c65441a607b972a040bded85911a106f59e7f90d6c3435a7f0",
+      "columns/processed/player_skill_features.csv": "74df4e788dee662f29465b7f80d79a986d1f52d49b668c662448ca03960df54b",
+      "columns/processed/season=2025/player_features.csv": "32c03646bf80ab461c8bd537bab84d78ec6f0c854f8f58cfc612cbaeb4af827e",
+      "columns/processed/season=2025/player_skill_features.csv": "3788f81cb3b7f768f7cad4c225a153271261171ff5537e745ec3afd951007038",
+      "columns/processed/season=2026/player_features.csv": "7df96b5adfe96ec7ac23e5d09aab63cdb5a18507ddef16f533f4d4b2a890a40d",
+      "columns/processed/season=2026/player_skill_features.csv": "cf5075d335bbb3662e14447935997351a59994817021d428db5e980290e48047",
+      "columns.csv": "e77b08710dc716dceacc62a1428490cc1dc1da2aeb377727b80657c3d62c94dd",
+      "coverage.csv": "b1392924049ff765c2958a3f3cd3fe5e18f4574543a501eea04f7ed2b7368b2f",
+      "datasets.csv": "cdd1156f32fe3dd0c76d8f173894c7cc03de13af496854dfaace69ca96c3fb93",
+      "previews/benchmarks/latest/season=2025/players.csv": "b63cea3beb7b2af36cf39edd7b8d6d156c0d1f7c15670725143775282bb3287f",
+      "previews/benchmarks/latest/season=2025/skills.csv": "418043a882490de7fec5be343bff9c3a7e7c6e14e1611f911a55d0b0116fdd22",
+      "previews/benchmarks/latest/season=2026/players.csv": "d5f4d9a0d94b3f667ed115f669090087e80a72ead76a8a3c6e755466c2e8a810",
+      "previews/benchmarks/latest/season=2026/skills.csv": "d9323a85b25121e4dfb96cdf13b63923f9c159e99716801ad584667917d87fb8",
+      "previews/frozen/season=2025/wcbb_espn_player_fingerprints/player_season.csv": "702fc4900c1f4d172183a4f50d1ded5db6c91188231adbb8021adaaecb768889",
+      "previews/frozen/season=2025/wcbb_espn_player_fingerprints/skill_impacts.csv": "b76b938da44397ac3a2ffa1b1ea13d4c7a6faf5d648704b07987e51171dc4956",
+      "previews/frozen/season=2025/wcbb_espn_player_fingerprints/team_id_discrepancies.csv": "67348de519c2f96e53c7bcbcee59cf6a5f3a726c91c66a8bd7c74fa306410511",
+      "previews/frozen/season=2025/wcbb_espn_team_netpoints/bpi.csv": "77ecb0c96b7550ddd305ba5a85ada3b0bed6e4c59b5404472074e4c849f4fe9e",
+      "previews/frozen/season=2025/wcbb_espn_team_netpoints/four_factors.csv": "8cedffb1b6ce194104556ced07c1cdbad3da683860b377b340c31f44c2cb3f24",
+      "previews/frozen/season=2025/wcbb_espn_team_netpoints/team_season.csv": "f89a60ebc483745236496f7654b95bdf4ddcc354abb30b8e92bccbee338eea00",
+      "previews/frozen/season=2025/wcbb_espn_team_netpoints/unkeyed_team_stats.csv": "34f9e90bdd0bb47f7ea5b66961496acf3fb0405ea680ebe623f6432fb3b03f16",
+      "previews/latest/season=2026/wcbb_espn_player_fingerprints/player_season.csv": "ecdc0b7defabfeeb63be6598e3f0693d22795e787e47496196dd7f7a77d3031f",
+      "previews/latest/season=2026/wcbb_espn_player_fingerprints/skill_impacts.csv": "abd9f050894d202f987c99679829ee51b62e45999f10197dcfb1f461a2db3d09",
+      "previews/latest/season=2026/wcbb_espn_player_fingerprints/team_id_discrepancies.csv": "67348de519c2f96e53c7bcbcee59cf6a5f3a726c91c66a8bd7c74fa306410511",
+      "previews/latest/season=2026/wcbb_espn_team_netpoints/bpi.csv": "1c56ba0c9902ab8e9d90b0023cdba2d94795cff9a3121e627873319570f5d958",
+      "previews/latest/season=2026/wcbb_espn_team_netpoints/four_factors.csv": "d66c57ad01e4ca3c43e1b7f2d58a81bb875a84bf827375774c7a39d9345aacbe",
+      "previews/latest/season=2026/wcbb_espn_team_netpoints/team_season.csv": "80295278c459eb21feed406bcda44500ba701243f1f1271b9bfd1051bd05e051",
+      "previews/latest/season=2026/wcbb_espn_team_netpoints/unkeyed_team_stats.csv": "26366b83259a5ddf1390692f77613e3b7a53d8b0a49e3f14f6cdcdacc129697e",
+      "previews/latest/wcbb_espn_player_fingerprints/player_season.csv": "f98d2cd6b18db65323879e79da9d0ca403a6b6df6fd5b322174eba64562cc391",
+      "previews/latest/wcbb_espn_player_fingerprints/skill_impacts.csv": "967593f19627a12b729f91852e7f8a6155ac8491a1855080ab46df44891da92c",
+      "previews/latest/wcbb_espn_player_fingerprints/team_id_discrepancies.csv": "67348de519c2f96e53c7bcbcee59cf6a5f3a726c91c66a8bd7c74fa306410511",
+      "previews/latest/wcbb_espn_team_netpoints/bpi.csv": "a3289a39e5156c213fcd63b6affa3f127763b5461e867f3bdf1bf4f7f96dbbd2",
+      "previews/latest/wcbb_espn_team_netpoints/four_factors.csv": "fd07e42346b19bcb0c31b6997a443577256f818960556beef1703d5310bf5c76",
+      "previews/latest/wcbb_espn_team_netpoints/team_season.csv": "1658b53dd5827145eb17f7441bffff69f6a487aef6afb2263313e92d25785cc0",
+      "previews/latest/wcbb_espn_team_netpoints/unkeyed_team_stats.csv": "26366b83259a5ddf1390692f77613e3b7a53d8b0a49e3f14f6cdcdacc129697e",
+      "previews/processed/phase2/full_population/season=2025/player_peer_features.csv": "d2b48c8fe13a9272e78d49fbb18f8b04fd4736401471daf17e4969345445226a",
+      "previews/processed/phase2/full_population/season=2025/player_skill_peer_features.csv": "401bc30654f88176cb4fd2c9c6ecc241ac14423eb83fd7008a5f05506d6e0216",
+      "previews/processed/phase2/full_population/season=2026/player_peer_features.csv": "020c39fb2eed91c0175507a3f2749ff87cf553eb40b0e19f89b5afe20f1a5d8e",
+      "previews/processed/phase2/full_population/season=2026/player_skill_peer_features.csv": "dc4aa5d10776e938ba9e5c528d7b810703d5e499820e9367e2cbfcc1f971d190",
+      "previews/processed/phase2/peer_benchmark_reference.csv": "c175e2ca24607fda5d4110b303dd897a7c10c8fdff93cad4451d230638f46d01",
+      "previews/processed/phase2/player_peer_features.csv": "e9564094445ab06e808e154141b78aac1fe87d79e57d9f7a477e0cc943976f5d",
+      "previews/processed/phase2/player_skill_peer_features.csv": "dd060df441a0f206c78f114c0648d656f319f0301462f714b8712c3c47f35823",
+      "previews/processed/phase2/season=2025/peer_benchmark_reference.csv": "ee3c345ff2dab13014205a5956962276f599f0885145e1dc4f42dec0e5e2474d",
+      "previews/processed/phase2/season=2025/player_peer_features.csv": "48c07acf00c986ceff80b23156555466ed02bc9e223d987c091f05aa5fe0e521",
+      "previews/processed/phase2/season=2025/player_skill_peer_features.csv": "dd2afd029dcf23f49183375623ffdc95eb5ea6786b8057d57b10cdc52cd2f103",
+      "previews/processed/phase2/season=2026/peer_benchmark_reference.csv": "a627a2744770d80c7e18508fa8c45513a01f29981142e299b99a6de912dc685c",
+      "previews/processed/phase2/season=2026/player_peer_features.csv": "ec871d1bd2cfa73b7637420fb424fb3ae706e90c4ade048bb6c79957a912672e",
+      "previews/processed/phase2/season=2026/player_skill_peer_features.csv": "f08237830e367267d2c596338f594f7855e9c2a0d5d9d0109ec4eaf0e14a95ac",
+      "previews/processed/player_features.csv": "6a8f3c91d062b8dc6e8dcd93e494d15c8a3a574c61c35a880582d0b2285bff2c",
+      "previews/processed/player_skill_features.csv": "c5428a095ffe9dbccdc6b8bd47c0f0d6fa9bf7b3280371e929f412bf84902b0f",
+      "previews/processed/season=2025/player_features.csv": "ebd57a5c8e15a1c8b4995c1165757e032e5c8d3e3a83adb99e8408625863115b",
+      "previews/processed/season=2025/player_skill_features.csv": "e65c1b1d51849cd997faf43b9d38ce72d2809ad50486fa66fed7f58d12e264ec",
+      "previews/processed/season=2026/player_features.csv": "0c9feb634bd70281b175fdab37d6c4baa39c4778f0473285958446e52d0cb81d",
+      "previews/processed/season=2026/player_skill_features.csv": "f6cd3c9220c925e5d2f45896fc1868804265d914390c3d87bbe98b4ac95a61e5"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+dataset_path,column_index,column,duckdb_type,pandas_dtype,rows,non_missing,missing,missing_pct,coverage_pct,blank_string_count
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,0,source_team_id,VARCHAR,object,45,45,0,0.0,100.0,0.0
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,1,BPI,DOUBLE,float64,45,45,0,0.0,100.0,
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,2,BPI_RK,BIGINT,int64,45,45,0,0.0,100.0,
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,3,BPI_OFF,DOUBLE,float64,45,45,0,0.0,100.0,
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,4,BPI_OFF_RK,BIGINT,int64,45,45,0,0.0,100.0,
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,5,BPI_DEF,DOUBLE,float64,45,45,0,0.0,100.0,
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,6,BPI_DEF_RK,BIGINT,int64,45,45,0,0.0,100.0,
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,7,team_id,BIGINT,int64,45,45,0,0.0,100.0,
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,8,team_requested,VARCHAR,object,45,45,0,0.0,100.0,0.0
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,9,cohort,VARCHAR,object,45,45,0,0.0,100.0,0.0
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,10,ap_rank,DOUBLE,float64,45,25,20,44.444444,55.555556,
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,11,api_season,BIGINT,int64,45,45,0,0.0,100.0,
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,12,academic_season,VARCHAR,object,45,45,0,0.0,100.0,0.0
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,13,retrieval_utc,VARCHAR,object,45,45,0,0.0,100.0,0.0
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,14,team_data_source_url,VARCHAR,object,45,45,0,0.0,100.0,0.0
+data/latest/season=2026/wcbb_espn_team_netpoints/bpi.parquet,15,fingerprint_source_url,VARCHAR,object,45,45,0,0.0,100.0,0.0
