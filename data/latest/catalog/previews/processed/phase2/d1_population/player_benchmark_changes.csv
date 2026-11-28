@@ -1,21 +1,21 @@
 api_season,player_id,team_id,fingerprint_total_per100_position_pctile_d1,functional_strength_tags_d1,fingerprint_total_per100_position_pctile_provider,functional_strength_tags_provider,fingerprint_total_percentile_change,functional_tags_changed
 2025,4433051,2502,33.86243386243386,"[""Transition""]",33.86243386243386,"[""Transition""]",0.0,False
 2025,5106146,239,83.17460317460318,[],83.17460317460318,[],0.0,False
-2025,5109255,2010,32.47322297955209,[],32.47322297955209,[],0.0,False
-2025,5175678,235,38.75365141187926,"[""Defensive activity""]",38.75365141187926,"[""Defensive activity""]",0.0,False
-2025,5178386,2197,,[],,[],,False
-2025,5240204,2550,,[],,[],,False
-2025,5242039,2771,,[],,[],,False
-2025,5311718,8,41.25874125874126,"[""Shooting / spacing"", ""Transition""]",41.25874125874126,"[""Shooting / spacing"", ""Transition""]",0.0,False
-2025,5313761,2117,25.267770204479064,"[""Rebounding / second chance"", ""Shooting / spacing""]",25.267770204479064,"[""Rebounding / second chance"", ""Shooting / spacing""]",0.0,False
-2025,5315349,2426,50.63291139240506,[],50.63291139240506,[],0.0,False
-2026,5108732,62,56.72268907563025,"[""Creation / playmaking"", ""Transition""]",56.72268907563025,"[""Creation / playmaking"", ""Transition""]",0.0,False
-2026,5176851,2099,,[],,[],,False
-2026,5239447,252,71.70868347338936,"[""Rebounding / second chance""]",71.70868347338936,"[""Rebounding / second chance""]",0.0,False
-2026,5241952,189,77.73913043478261,"[""Finishing"", ""Rebounding / second chance"", ""Shooting / spacing""]",77.73913043478261,"[""Finishing"", ""Rebounding / second chance"", ""Shooting / spacing""]",0.0,False
-2026,5312001,111,22.26890756302521,[],22.26890756302521,[],0.0,False
-2026,5314908,2541,,[],,[],,False
+2025,5109306,2506,,[],,[],,False
+2025,5175679,356,92.21032132424537,"[""Creation / playmaking"", ""Finishing""]",92.21032132424537,"[""Creation / playmaking"", ""Finishing""]",0.0,False
+2025,5178389,339,14.814814814814815,"[""Creation / playmaking""]",14.814814814814815,"[""Creation / playmaking""]",0.0,False
+2025,5240207,85,17.883597883597883,"[""Creation / playmaking"", ""Defensive activity""]",17.883597883597883,"[""Creation / playmaking"", ""Defensive activity""]",0.0,False
+2025,5242081,2737,47.46835443037975,"[""Defensive activity"", ""Finishing"", ""Transition""]",47.46835443037975,"[""Defensive activity"", ""Finishing"", ""Transition""]",0.0,False
+2025,5311723,333,,[],,[],,False
+2025,5313767,2561,25.024342745861734,"[""Finishing"", ""Rebounding / second chance""]",25.024342745861734,"[""Finishing"", ""Rebounding / second chance""]",0.0,False
+2025,5315354,236,,[],,[],,False
+2026,5108754,350,,[],,[],,False
+2026,5176862,2217,83.55263157894737,"[""Defensive activity"", ""Shooting / spacing"", ""Transition""]",83.55263157894737,"[""Defensive activity"", ""Shooting / spacing"", ""Transition""]",0.0,False
+2026,5239453,239,98.35526315789474,"[""Finishing"", ""Rebounding / second chance"", ""Shooting / spacing""]",98.35526315789474,"[""Finishing"", ""Rebounding / second chance"", ""Shooting / spacing""]",0.0,False
+2026,5241963,2523,,[],,[],,False
+2026,5312003,111,,[],,[],,False
+2026,5314909,2856,,[],,[],,False
 2026,5315813,2296,,[],,[],,False
-2026,5458146,2166,,[],,[],,False
-2026,5461508,2439,71.84873949579831,"[""Creation / playmaking""]",71.84873949579831,"[""Creation / playmaking""]",0.0,False
+2026,5458145,2856,,[],,[],,False
+2026,5461508,2439,72.93333333333334,"[""Creation / playmaking""]",72.93333333333334,"[""Creation / playmaking""]",0.0,False
 2026,5475422,2504,,[],,[],,False
