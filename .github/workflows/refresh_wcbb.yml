@@ -36,13 +36,46 @@ jobs:
       - name: Verify publish manifest
         run: python scripts/check_manifest.py
       - name: Commit only validated data snapshots
+        id: publish
         run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A data/frozen data/latest data/snapshots data/processed data/benchmarks reports/manifest_latest.json
           if git diff --cached --quiet; then
             echo 'No data changes to commit'
+            echo 'published=false' >> "$GITHUB_OUTPUT"
           else
             git commit -m "data(wcbb): publish validated ESPN snapshot [skip ci]"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo 'published=true' >> "$GITHUB_OUTPUT"
+            else
+              exit 1
+            fi
           fi
+      - name: Record exact publication binding
+        if: steps.publish.outputs.published == 'true'
+        env:
+          RUN_ID: ${{ github.run_id }}
+          ATTEMPT: ${{ github.run_attempt }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, os, subprocess
+          from pathlib import Path
+          raw = Path('data/processed/phase2/d1_population/manifest.json').read_bytes()
+          binding = dict(repository=os.environ['REPO'], upstream_run_id=os.environ['RUN_ID'],
+                         upstream_run_attempt=int(os.environ['ATTEMPT']), published=True,
+                         publication_sha=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+                         source_run_id=json.loads(raw)['source_run_id'], manifest_sha256=hashlib.sha256(raw).hexdigest())
+          Path('publication.json').write_text(json.dumps(binding, indent=2) + '\n')
+          PY
+      - name: Retain source publication binding
+        if: steps.publish.outputs.published == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: wbb-publication-binding-${{ github.run_attempt }}
+          path: publication.json
+          if-no-files-found: error
+          retention-days: 30
